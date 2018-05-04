@@ -1,0 +1,144 @@
+.related-links {
+  margin-top: 30px;
+  //border-top: 1px solid $back-to-top-button-border;
+  //border-bottom: 1px solid $back-to-top-button-border;
+
+  .next {
+    //text-align:right;
+    border-bottom: 1px solid $back-to-top-button-border;
+    //padding-right: 0;
+
+    a:before {
+      content: "< \0020"
+    }
+  }
+
+  .prev {
+    //text-align: left;
+    //padding-left: 0;
+
+    a:after {
+      content: "\0020 >"
+    }
+  }
+
+  .next, .prev {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5em;
+    color: $back-to-top-i-color;
+
+    a:after, a:before {
+      font-size: 1.1em;
+      color: $back-to-top-i-color;
+    }
+  }
+}
+
+#side-nav {
+  .strip-navigation {
+    width: 56px;
+    height: 56px;
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    z-index: 800;
+    cursor: pointer;
+    transition: 0.5s;
+
+    a,
+    a:hover {
+      text-decoration: none;
+      color: $next-prev-color;
+    }
+
+    .arrow {
+      background-color: $next-prev-background;
+      border: 1px solid $next-prev-border;
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 0 0;
+
+      &:after {
+        @extend .sprite;
+        @extend .prev-arrow;
+        content: "";
+        color: $next-prev-color;
+        display: block;
+        margin: 14.5px auto;
+        transform: scaleX(-1);
+      }
+
+      &:hover{
+        &:after {
+          @extend .sprite.prev-arrow-hover;
+        }
+      }
+    }
+    .arrow-right {
+      transform: scaleX(-1);
+      margin: 0 0 0 auto;
+    }
+
+    article {
+      width: 220px;
+      display: none;
+      opacity: 0
+    }
+
+    &.prev {
+      left: 0;
+    }
+    &.next {
+      right: 0;
+    }
+  }
+
+  .extended {
+    width: 275px;
+  }
+  .extended article {
+    position: absolute;
+    top: 0;
+    display: table;
+    height: 100%;
+    opacity: 1;
+    left: 55px;
+    text-align: center;
+    background: $next-prev-article-background;
+    border: 1px solid $next-prev-article-border;
+
+    .summary {
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 1.214em;
+
+      &:hover {
+        text-decoration: underline
+      }
+      &.plastic-surgery {
+        color: $summary-plastic-surgery
+      }
+      &.aesthetic-treatment {
+        color: $summary-aesthetic-treatment
+      }
+      &.body-toning {
+        color: $summary-body-toning
+      }
+      &.dental-treatment {
+        color: $summary-dental-treatment
+      }
+      &.hair-treatment {
+        color: $summary-hair-treatment
+      }
+      &.laser-treatment {
+        color: $summary-laser-treatment
+      }
+    }
+  }
+  .extended.next article {
+    left: initial;
+    right: 55px;
+  }
+}

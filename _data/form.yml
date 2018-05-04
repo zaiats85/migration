@@ -1,0 +1,49 @@
+# Define the defaults for form.
+
+# Main Form
+  title: כמה זה יעלה לי?
+  text:  אנחנו עובדים רק עם רופאי שיניים מקצועיים! הייעוץ הנו בחינם וללא כל התחייבות.
+  button: שלחו אלי 5 הצעות
+  src: sub-dental
+  region:
+  procedure:
+
+# Modal
+  modal_title: עד 40% הנחה לנרשמים כאן!
+  modal_text: השוו מחירים לטיפולי שיניים בין 5 רופאי שיניים מובילים באזורכם וחסכו כסף וזמן!
+  modal_submit: שלחו אלי הצעות מחיר
+  modal_trigger: לחצו כאן להשוואת מחירים
+  time: 600
+  url:
+  new_tab: yes
+
+# Mobile Teasers
+  top_teaser: hide
+  top_teaser_button: לחצו כאן להשוואת מחירים
+  bottom_teaser: show
+  bottom_teaser_button: לחצו כאן להשוואת מחירים
+
+# Desktop Teasers
+  desktop_modal_trigger: hide
+  desktop_trigger_button: שלחו אלי הצעות
+
+# Card
+  card: show
+  card_button: קבלו 5 הצעות מחיר
+  flip_form_title: כמה זה יעלה לי?
+  flip_form_text: אנחנו עובדים רק עם רופאי שיניים מקצועיים! הייעוץ הנו בחינם וללא כל התחייבות.
+  flip_form_button: שלחו אלי הצעות
+
+# Mobile Form
+  mobile_form_title: כמה זה יעלה לי?
+  mobile_form_text: אנחנו עובדים רק עם רופאי שיניים מקצועיים! הייעוץ הנו בחינם וללא כל התחייבות.
+  mobile_form_button: שלחו אלי 5 הצעות
+  slide: yes
+
+# Phone
+  phone: hide
+  number: '0522306113'
+
+# Pointer
+  pointer: hide
+  pointer_text: קבלי הצעות מחיר בתהליך פשוט וקל וחסכי הרבה זמן וכסף

@@ -1,0 +1,30 @@
+---
+layout: default
+base_layout: price
+---
+<section itemprop="mainContentOfPage" id="price">
+    <div class="container">
+        <div class="price-background-img">
+            <img src="images/banners/pricesbann.jpg" />
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-first">
+                <h1 itemprop="headline">{{ page.title }}</h1>
+
+                <div class="price-content">
+                    {{ content }}
+                </div>
+            </div>
+
+            <div class="col-md-4 hidden-sm hidden-xs form-column">
+                <div class="sticky-form">
+                    <img class="price-form-woman" src="images/price/form-woman.png" />
+                    {% include form-vertical.html %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include related-content-links.html %}
+

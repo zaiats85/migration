@@ -1,0 +1,44 @@
+{% for category in site.data.mobile-menu %}
+<li class="main-category">
+    <p itemprop="url" class="mobile-menu-item">
+        {% if category.subitems %}
+        <span class="icon fa icon-angle-left"></span>
+        <span itemprop="name">{{ category.name }}</span>
+        {% else %}
+
+        {% if category.new_window and category.no_follow %}
+        <span itemprop="name"><a href="{{category.url}}" target="_blank" rel="nofollow">{{ category.name }}</a></span>
+        {% elsif category.new_window %}
+        <span itemprop="name"><a href="{{category.url}}" target="_blank">{{ category.name }}</a></span>
+        {% elsif category.no_follow %}
+        <span itemprop="name"><a href="{{category.url}}" rel="nofollow">{{ category.name }}</a></span>
+        {% else %}
+        <span itemprop="name"><a href="{{category.url}}">{{ category.name }}</a></span>
+        {% endif %}
+
+        {% endif %}
+    </p>
+
+    {% if category.subitems %}
+    <div class="mobile-subitems-wrapper mobile-fixed-height">
+        <p class="mobile-menu-item opened-menu-item"><span class="icon fa icon-left-open"></span><span>חזרה לתפריט הראשי</span></p>
+
+        {% for subitem in category.subitems %}
+
+        {% if subitem.new_window and subitem.no_follow %}
+        <a class="mobile-subitem" href="{{ subitem.url %}}" target="_blank" rel="nofollow">{{ subitem.name }}</a>
+        {% elsif subitem.new_window %}
+        <a class="mobile-subitem" href="{{ subitem.url %}}" target="_blank">{{ subitem.name }}</a>
+        {% elsif subitem.no_follow %}
+        <a class="mobile-subitem" href="{{ subitem.url %}}" rel="nofollow">{{ subitem.name }}</a>
+        {% else %}
+        <a class="mobile-subitem" href="{{ subitem.url %}}">{{ subitem.name }}</a>
+        {% endif %}
+
+        {% endfor %}
+
+    </div>
+    {% endif %}
+</li>
+{% endfor %}
+

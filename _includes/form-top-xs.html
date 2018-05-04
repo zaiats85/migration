@@ -1,0 +1,29 @@
+{% if page.phone == 'show' %}
+{% assign showPhone = true %}
+{% elsif page.phone != 'hide' and site.data.form.phone == 'show' %}
+{% assign showPhone = true %}
+{% else %}
+{% assign showPhoneParent = 'hide-phone' %}
+{% endif %}
+
+{% if page.mobile.top_teaser_button %}
+  {% assign top_teaser_button = page.mobile.top_teaser_button %}
+{% else %}
+  {% assign top_teaser_button = site.data.form.top_teaser_button %}
+{% endif %}
+
+<div class="floating-top-form visible-sm visible-xs collapsed collapsable unvisible">
+    <div class="open-form-block {{ showPhoneParent }}">
+        <i class="open-checkmark sprite v-icon-small"></i>
+        <button class="primary-button open-collapsed">{{ top_teaser_button }}</button>
+
+        {% if showPhone %}
+            <a href="tel:{{ site.data.form.number }}">
+                <i class="sprite call-now"></i>
+            </a>
+        {% endif %}
+    </div>
+    <div class="first-form">
+        {% include form.html shouldHide=true parent="top-teaser" %}
+    </div>
+</div>

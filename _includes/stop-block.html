@@ -1,0 +1,9 @@
+<div class="stop-block">
+    {% if page.stop_block.title != '' %}
+    <h4 class="stop-block-title"><i class="sprite v-stop-block"></i>{{ page.stop_block.title }}</h4>
+    {% else %}
+    <h4 class="stop-block-title">{{ page.title }}</h4>
+    {% endif %}
+
+    <p>{{ page.stop_block.text }}</p>
+</div>

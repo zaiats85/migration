@@ -1,0 +1,34 @@
+<div class="categories" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+  <a class="category" href="שיקום-שיניים-והשתלות" itemprop="url">
+
+    {% if page.main_category == 'dental-implants' %}
+      <i class="category-image implants active"></i>
+      <p class="category-title active" itemprop="name">שיקום<br>והשתלות</p>
+    {% else %}
+      <i class="category-image implants"></i>
+      <p class="category-title" itemprop="name">שיקום<br>והשתלות</p>
+    {% endif %}
+  </a>
+
+  <a class="category" href="רפואה-משמרת" itemprop="url">
+
+    {% if page.main_category == 'dental-treatment' %}
+      <i class="category-image treatment active"></i>
+      <p class="category-title active" itemprop="name">רפואה<br>משמרת</p>
+    {% else %}
+      <i class="category-image treatment"></i>
+      <p class="category-title" itemprop="name">רפואה<br>משמרת</p>
+    {% endif %}
+  </a>
+
+  <a class="category" href="אסתטיקה-דנטלית" itemprop="url">
+
+    {% if page.main_category == 'dental-beauty' %}
+      <i class="category-image beauty active"></i>
+      <p class="category-title active" itemprop="name">אסתטיקה<br>דנטלית</p>
+    {% else %}
+      <i class="category-image beauty"></i>
+      <p class="category-title" itemprop="name">אסתטיקה<br>דנטלית</p>
+    {% endif %}
+  </a>
+</div>

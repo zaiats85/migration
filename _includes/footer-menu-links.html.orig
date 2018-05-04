@@ -1,0 +1,36 @@
+<div class="col-menu">
+  <h4><a itemprop="url" href="#"><span itemprop="name">מאמרים באתר</span></a></h4>
+</div>
+<div class="col-menu line">
+<<<<<<< HEAD
+  <h4><a itemprop="url" itemprop="url" href="http://medicart.co.il"><span itemprop="name">רפואה אסתטית</span></a></h4>
+</div>
+<div class="col-menu line">
+  <h4><a itemprop="url" href="http://hair.medicart.co.il"><span itemprop="name">הסרת שיער</span></a></h4>
+</div>
+<div class="col-menu line">
+  <h4><a itemprop="url" href="http://enaim.medicart.co.il">הסרת משקפיים</a></h4>
+</div>
+<div class="col-menu line">
+  <h4><a itemprop="url" href="/אודותינו"><span itemprop="name">אודותינו</span></a></h4>
+</div>
+<div class="col-menu line">
+  <h4><a itemprop="url" href="/תקנון"><span itemprop="name">תקנון</span></a></h4>
+</div>
+
+=======
+    <h4><a itemprop="url" href="https://hair.medicart.co.il"><span itemprop="name">פורטל שיער</span></a></h4>
+</div>
+<div class="col-menu line">
+    <h4><a itemprop="url" href="https://enaim.medicart.co.il">הסרת משקפיים</a></h4>
+</div>
+<div class="col-menu line">
+    <h4><a itemprop="url" href="https://dental.medicart.co.il"><span itemprop="name">פורטל שיניים</span></a></h4>
+</div>
+<div class="col-menu line">
+    <h4><a itemprop="url" href="https://proctolog.medicart.co.il"><span itemprop="name">טחורים ופיסורה</span></a></h4>
+</div>
+<div class="col-menu line">
+    <h4><a itemprop="url" href="https://fungus.medicart.co.il"><span itemprop="name">פטרת ציפורניים ובעיות עור</span></a></h4>
+</div>
+>>>>>>> master

@@ -1,0 +1,14 @@
+{% if page.related_content.next %}
+<div class="row related-links hidden-lg hidden-md">
+    <div class="col-xs-12 text-center next">
+        <a itemprop="relatedLink" href="{{ page.related_content.next }}">{{ page.related_content.n_name }}</a>
+    </div>
+    {% elsif page.related_content.next == nil %}
+    {% endif %}
+    {% if page.related_content.prev %}
+    <div class="col-xs-12 text-center prev">
+        <a itemprop="relatedLink" href="{{ page.related_content.prev }}">{{ page.related_content.p_name }}</a>
+    </div>
+</div>
+{% elsif page.related_content.prev == nil %}
+{% endif %}

@@ -1,0 +1,51 @@
+---
+layout: default
+base_layout: pros
+---
+<section itemprop="mainContentOfPage" id="pros">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-first col-sm-12">
+                <h1 itemprop="headline">{{ page.title }}</h1>
+                <div class="table-wrapper">
+                    <div class="row tbl-row-header hidden-xs">
+                        <div class="col-sm-7 col-xs-12"><strong>שם המכון/מרפאה</strong></div>
+                        <div class="col-sm-5 col-xs-12"><strong>כתובת</strong></div>
+                    </div>
+                    {{ content }}
+                </div>
+                {% include related-content-links-xs.html %}
+
+                <div class="attention hidden-sm hidden-xs">
+                    <i class="hand"></i>
+                    {% if page.stop_block.title != '' %}
+                    <h4>{{ page.stop_block.title }}</h4>
+                    {% else %}
+                    <h4>{{ page.title }}</h4>
+                    {% endif %}
+                    <p>{{ page.stop_block.text }}</p>
+                </div>
+            </div>
+            <div class="col-md-5 col-last hidden-sm hidden-xs">
+                <h2>קבלו הצעות מחיר מדויקות</h2>
+                <div class="sticky-form"> {% include form-vertical.html %}</div>
+            </div>
+        </div>
+        <div class="row hidden-sm hidden-xs">
+            <div class="col-xs-12 text-center">
+            </div>
+        </div>
+        <div class="modal" id="pros-lead-modal-wrapper" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="frame clearfix {{ page.main_category }}">
+                <a class="close" data-dismiss="modal"><span aria-hidden="true"><i
+                        class="fa icon-cancel"></i></span><span class="sr-only">סגור</span></a>
+
+                <div class="first-form hidden">
+                    <div class="mobile-lead-form"> {% include form-vertical.html %}</div>
+                </div>
+            </div>
+        </div>
+        {% include related-content-links-xs.html %}
+    </div>
+</section>
+{% include related-content-links.html %}

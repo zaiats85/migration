@@ -1,0 +1,59 @@
+<tr>
+    {% for category in site.data.main-menu %}
+    <td class="main-category {{ category.class_name }} dropdown">
+        {% if category.type == 'dropdown-link' %}
+
+        {% if category.new_window and category.no_follow %}
+        <a href="{{ category.url }}" itemprop="url" class="dropdown-link" target="_blank" rel="nofollow"><span class="underline" itemprop="name">{{ category.name }}</span></a>
+        {% elsif category.new_window %}
+        <a href="{{ category.url }}" itemprop="url" class="dropdown-link" target="_blank"><span class="underline" itemprop="name">{{ category.name }}</span></a>
+        {% elsif category.no_follow %}
+        <a href="{{ category.url }}" itemprop="url" class="dropdown-link" rel="nofollow"><span class="underline" itemprop="name">{{ category.name }}</span></a>
+        {% else %}
+        <a href="{{ category.url }}" itemprop="url" class="dropdown-link"><span class="underline" itemprop="name">{{ category.name }}</span></a>
+        {% endif %}
+
+        <div class="show-menu">
+            <div class="menu-arrow"></div>
+            <ul class="menu-container hidden-xs hidden-sm">
+                {% for subcategory in category.subcategories %}
+                <li class="sub-category">
+                    <div class="box">
+                        <h3>{{ subcategory.title }}</h3>
+                        <ul class="end-category">
+                            {% for element in subcategory.elements %}
+
+                            {% if element.new_window and element.no_follow %}
+                            <li><a itemprop="url" href="{{ element.url }}" target="_blank" rel="nofollow"><span itemprop="name">{{ element.name }}</span></a></li>
+                            {% elsif element.new_window %}
+                            <li><a itemprop="url" href="{{ element.url }}" target="_blank"><span itemprop="name">{{ element.name }}</span></a></li>
+                            {% elsif element.no_follow %}
+                            <li><a itemprop="url" href="{{ element.url }}" rel="nofollow"><span itemprop="name">{{ element.name }}</span></a></li>
+                            {% else %}
+                            <li><a itemprop="url" href="{{ element.url }}"><span itemprop="name">{{ element.name }}</span></a></li>
+                            {% endif %}
+
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                {% endfor %}
+                <div class="bottom-menu-line"></div>
+            </ul>
+        </div>
+        {% else %}
+
+        {% if category.new_window and category.no_follow %}
+        <a href="{{ category.url }}" itemprop="url" target="_blank" rel="nofollow"><span class="underline" itemprop="name">{{ category.name }}</span></a>
+        {% elsif category.new_window %}
+        <a href="{{ category.url }}" itemprop="url" target="_blank"><span class="underline" itemprop="name">{{ category.name }}</span></a>
+        {% elsif category.no_follow %}
+        <a href="{{ category.url }}" itemprop="url" rel="nofollow"><span class="underline" itemprop="name">{{ category.name }}</span></a>
+        {% else %}
+        <a href="{{ category.url }}" itemprop="url"><span class="underline" itemprop="name">{{ category.name }}</span></a>
+        {% endif %}
+
+        {% endif %}
+    </td>
+    {% endfor %}
+</tr>

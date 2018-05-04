@@ -1,0 +1,53 @@
+---
+layout: default
+base_layout: front-page
+---
+
+<div itemprop="mainContentOfPage" id="front-page">
+
+  <section id="find-treatment">
+    <div class="container forms-container">
+      <div class="background-img">
+        <img src="images/banners/homebann.jpg"/>
+      </div>
+
+      <div class="main-col col-md-3 col-xs-7">
+        <h1>{{ site.data.home.title }}</h1>
+      </div>
+
+      <div class="homepage-form hidden-sm hidden-xs">
+        {% include form.html %}
+      </div>
+    </div>
+  </section>
+
+  <section id="here-for-you">
+    <div class="container">
+
+      <div class="text-wrapper">
+        <p>{{ site.data.home.about.p1 }}</p>
+        <p>{{ site.data.home.about.p2 }}</p>
+        <h2>{{ site.data.home.about.title }}</h2>
+      </div>
+
+      <div class="promoted-links-wrapper">
+        {% include homepage-promoted-links.html %}
+      </div>
+
+    </div>
+  </section>
+
+  <section id="articles">
+    <div class="container">
+      <div class="articles-title text-center">
+        <h2>{{ site.data.home.about.guides }}</h2>
+        <p>{{ site.data.home.about.prolog }}</p>
+      </div>
+      <div class="categories-wrapper">
+        {% include categories.html %}
+      </div>
+      {% include homepage-teasers.html %}
+    </div>
+  </section>
+  {% include related-content-links.html %}
+</div>

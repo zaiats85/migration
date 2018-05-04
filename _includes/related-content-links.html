@@ -1,0 +1,26 @@
+{% if page.related_content.prev %}
+<section id="side-nav" class="hidden-sm hidden-xs">
+    <nav class="strip-navigation prev">
+        <a itemprop="relatedLink" href="{{ page.related_content.prev }}">
+            <article>
+                <div class="summary {{ page.main_category }}">{{ page.related_content.p_name }}</div>
+            </article>
+            <div class="arrow arrow-left"></div>
+        </a>
+    </nav>
+</section>
+{% elsif page.related_content.prev == nil %}
+{% endif %}
+{% if page.related_content.next %}
+<section id="side-nav" class="hidden-sm hidden-xs">
+    <nav class="strip-navigation next">
+        <a itemprop="relatedLink" href="{{ page.related_content.next }}">
+            <article>
+                <div class="summary {{ page.main_category }}">{{ page.related_content.n_name }}</div>
+            </article>
+            <div class="arrow arrow-right"></div>
+        </a>
+    </nav>
+</section>
+{% elsif page.related_content.prev == nil %}
+{% endif %}

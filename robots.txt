@@ -1,0 +1,10 @@
+---
+---
+Sitemap: {{ site.url }}/sitemap.xml
+
+User-agent: * 
+{% for page in site.pages %}{% if page.noindex %}{% assign isset = true %}
+Disallow: {{ page.url }}{% endif %}{% endfor %}{% for post in site.posts %}{% if post.noindex %}{% assign isset = true %}
+Disallow: {{ post.url }}{% endif %}{% endfor %}
+{% if isset != true %}Disallow:
+{% endif %}

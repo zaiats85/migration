@@ -1,0 +1,253 @@
+{% comment %} Assign value to form title {% endcomment %}
+{% if include.parent == 'modal' %}
+{% if page.modal.modal_title %}
+{% assign form_title = page.modal.modal_title %}
+{% else %}
+{% assign form_title = site.data.form.modal_title %}
+{% endif %}
+{% elsif include.parent == 'prescription' %}
+{% if page.flip_form_title %}
+{% assign form_title = page.flip_form_title %}
+{% else %}
+{% assign form_title = site.data.form.flip_form_title %}
+{% endif %}
+{% elsif include.parent == 'bottom-teaser' or include.parent == 'top-teaser' %}
+{% if page.mobile.mobile_form_title %}
+{% assign form_title = page.mobile.mobile_form_title %}
+{% else %}
+{% assign form_title = site.data.form.mobile_form_title %}
+{% endif %}
+{% else %}
+{% if page.form.title %}
+{% assign form_title = page.form.title %}
+{% else %}
+{% assign form_title = site.data.form.title %}
+{% endif %}
+{% endif %}
+
+
+{% comment %} Assign value to form text {% endcomment %}
+{% if include.parent == 'modal' %}
+{% if page.modal.modal_text %}
+{% assign form_text = page.modal.modal_text %}
+{% else %}
+{% assign form_text = site.data.form.modal_text %}
+{% endif %}
+{% if page.modal.url %}
+{% assign form_url = page.modal.url %}
+{% assign is_text_url = true %}
+{% elsif site.data.form.url %}
+{% assign form_url = site.data.form.url %}
+{% assign is_text_url = true %}
+{% endif %}
+{% elsif include.parent == 'prescription' %}
+{% if page.flip_form_text %}
+{% assign form_text = page.flip_form_text %}
+{% else %}
+{% assign form_text = site.data.form.flip_form_text %}
+{% endif %}
+{% elsif include.parent == 'bottom-teaser' or include.parent == 'top-teaser' %}
+{% if page.mobile.mobile_form_text %}
+{% assign form_text = page.mobile.mobile_form_text %}
+{% else %}
+{% assign form_text = site.data.form.mobile_form_text %}
+{% endif %}
+{% else %}
+{% if page.form.text %}
+{% assign form_text = page.form.text %}
+{% else %}
+{% assign form_text = site.data.form.text %}
+{% endif %}
+{% endif %}
+
+
+
+
+
+{% comment %} Assign value to form id attribute {% endcomment %}
+{% if include.id %}
+    {% assign form_id = include.id | prepend:'lead-form-' %}
+{% else %}
+    {% assign form_id = 'lead-form' %}
+{% endif %}
+
+{% if include.shouldHide %}
+    {% assign hide = 'hide-button' %}
+{% endif %}
+
+
+{% comment %} Assign value to form button {% endcomment %}
+{% if include.parent == 'modal' %}
+{% if page.modal.modal_submit %}
+{% assign form_button = page.modal.modal_submit %}
+{% else %}
+{% assign form_button = site.data.form.modal_submit %}
+{% endif %}
+{% elsif include.parent == 'prescription' %}
+{% if page.flip_form_button %}
+{% assign form_button = page.flip_form_button %}
+{% else %}
+{% assign form_button = site.data.form.flip_form_button %}
+{% endif %}
+{% elsif include.parent == 'bottom-teaser' or include.parent == 'top-teaser' %}
+{% if page.mobile.mobile_form_button %}
+{% assign form_button = page.mobile.mobile_form_button %}
+{% else %}
+{% assign form_button = site.data.form.mobile_form_button %}
+{% endif %}
+{% else %}
+{% if page.form.button %}
+{% assign form_button = page.form.button %}
+{% else %}
+{% assign form_button = site.data.form.button %}
+{% endif %}
+{% endif %}
+
+{% comment %} Should form text url open in new tab {% endcomment %}
+{% if page.form.new_tab %}
+{% assign url_target = '_blank' %}
+{% elsif page.form.new_tab == nil and site.data.form.new_tab %}
+{% assign url_target = '_blank' %}
+{% else %}
+{% assign url_target = '_self' %}
+{% endif %}
+
+
+{% comment %} Assign value SRC to hidden field form {% endcomment %}
+{% if page.form.src %}
+    {% assign src = page.form.src %}
+{% else %}
+    {% assign src = site.data.form.src %}
+{% endif %}
+
+
+{% comment %} Assign values to the options form field {% endcomment %}
+{% if page.form.procedure_type_options %}
+{% assign options = page.form.procedure_type_options | append:'-procedure-options.html' %}
+{% else %}
+{% assign options = 'procedure-options.html' %}
+{% endif %}
+
+{% if site.data.form.region != null or page.form.region != null %}
+{% if site.data.form.procedure != null or page.form.procedure != null %}
+{% assign resize = 'resize-column' %}
+{% endif %}
+{% endif %}
+
+
+{% if page.phone == 'show' %}
+{% assign showPhone = true %}
+{% elsif page.phone != 'hide' and site.data.form.phone == 'show' %}
+{% assign showPhone = true %}
+{% else %}
+{% assign showPhoneParent = 'hide-phone' %}
+{% endif %}
+
+
+<form method="post" id="{{ form_id }}" class="price-form" name="wf-form-lead-form" data-name="lead form"
+      target="form-response">
+
+    <div class="form-header">
+        <i class="top-checkmark sprite v-icon-small"></i>
+        <h3 class="form-title">{{ form_title }}</h3>
+
+        {% if is_text_url %}
+        <a class="form-subtitle" href="{{ form_url }}" target="{{ url_target }}">{{ form_text }}</a>
+        {% else %}
+        <p class="form-subtitle">{{ form_text }}</p>
+        {% endif %}
+
+        <i class="side-checkmark sprite v-icon"></i>
+    </div>
+
+
+    <div class="inputs-wrappers">
+        <div class="col-50 {{ resize }} collapse-hide">
+            <div class="input-wrapper">
+                <div class="bubble"></div>
+                <input placeholder="שם מלא" data-type="name" class="form-input has-icon name-helper" type="text"
+                       name="Name_helper" id="Name_helper" data-name="Name_helper">
+            </div>
+        </div>
+
+        <div class="col-50 {{ resize }} collapse-hide">
+            <div class="input-wrapper">
+                <div class="bubble"></div>
+                <input placeholder="מספר טלפון" data-type="phone" class="form-input has-icon phone-helper" type="tel"
+                       name="Phone_helper" id="Phone_helper" maxlength="12" data-name="Phone_helper"/>
+            </div>
+            <small>כדי שנוכל להעביר לך את ההצעות</small>
+        </div>
+
+        {% if site.data.form.region == null and page.form.region == null %}
+            <div class="col-50 collapse-hide">
+                <div class="input-wrapper">
+                    <i class="select-arrow"></i>
+                    <div class="bubble"></div>
+                    <select data-type="location" class="form-input has-icon region" name="Region[]" id="Region[]"
+                            data-name="Region[]">
+                        {% include regions.html %}
+                    </select>
+                </div>
+                <small>נעביר לך רק הצעות רלוונטיות מאזורך</small>
+            </div>
+        {% endif %}
+
+        {% if site.data.form.procedure == null and page.form.procedure == null %}
+            <div class="col-33 collapse-hide">
+                <div class="input-wrapper">
+                    <i class="select-arrow"></i>
+                    <div class="bubble"></div>
+                    <select data-type="search" class="form-input has-icon procedure-type" name="Procedure_Type[]"
+                            id="Procedure_Type[]" data-name="Procedure_Type[]">
+                        {% include {{options}} %}
+                    </select>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="submit-wrapper {{ hide }}">
+        <button class="w-button submit primary-button turq {{ page.main_category }} {{ showPhoneParent }}" type="submit" data-wait="שולח...">
+            <span class="no-margin">{{ form_button }}</span>
+        </button>
+
+        {% if showPhone %}
+            <a href="tel:{{ site.data.form.number }}">
+                <i class="mobile-form-call sprite call-now"></i>
+            </a>
+        {% endif %}
+    </div>
+
+    <small class="form-small-text">ייעוץ חינם, אפשרויות מימון ייחודיות והסדרים עם רוב חברות הביטוח!</small>
+
+    <div class="collapsed-button"><i class="fa icon-cancel"></i></div>
+
+    <div class="clearfix"></div>
+
+   {% if page.form.procedure %}
+    <input type="hidden" name="Procedure_Type[]" value="{{ page.form.procedure }}">
+   {% elsif site.data.form.procedure %}
+    <input type="hidden" name="Procedure_Type[]" value="{{ site.data.form.procedure }}">
+   {% endif %}
+
+   {% if page.form.region %}
+    <input type="hidden" name="Region[]" value="{{ page.form.region }}">
+   {% elsif site.data.form.region %}
+    <input type="hidden" name="Region[]" value="{{ site.data.form.region }}">
+   {% endif %}
+
+    <input class="first-name" type="hidden" name="First_Name" value=""/>
+    <input class="last-name" type="hidden" name="Last_Name" value=""/>
+    <input class="phone-prefix" type="hidden" name="Phone_Prefix" value=""/>
+    <input class="phone" type="hidden" name="Phone" value=""/>
+    <input type="hidden" name="System_ID" value="organic"/>
+    <input type="hidden" name="SRC" value="{{ src }}"/>
+    <input type="hidden" name="Landing_Page" value="{{ site.url }}{{ page.url }}"/>
+    <input type="hidden" name="Sub_ID" value=""/>
+    <input type="hidden" name="Pub_ID" value=""/>
+    <input type="hidden" name="form" value="1"/>
+    <input type="hidden" name="TYPE" value="29"/>
+    <input type="hidden" name="Email" value="">
+
+</form>

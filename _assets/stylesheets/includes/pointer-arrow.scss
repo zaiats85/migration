@@ -1,0 +1,52 @@
+.pointer-arrow-wrapper {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 750px;
+  margin: 30px auto -55px;
+
+  .pointer-arrow-background {
+    width: 103%;
+    margin-right: -1.5%;
+    max-height: 175px;
+  }
+  .pointer-arrow-text {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.271em;
+    line-height: 1em;
+    color: white;
+    text-shadow: 0 2px 8px #000;
+  }
+}
+
+.pointer-arrow-mobile {
+  margin: 30px 0 -50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 125px;
+  transition: height .4s ease-out .2s, visibility .4s ease .2s;
+
+  &.unvisible {
+    margin: 0;
+    visibility: hidden;
+    height: 0;
+  }
+
+  .pointer-arrow-content {
+    position: relative;
+    width: 100%
+  }
+  .pointer-arrow-background {
+    max-height: 125px;
+  }
+
+  .pointer-arrow-text {
+    font-size: 1.514em;
+    width: 100%;
+    top: 35%;
+  }
+}

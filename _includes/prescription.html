@@ -1,0 +1,21 @@
+{% if page.card_button %}
+  {% assign card_button = page.card_button %}
+{% else %}
+  {% assign card_button = site.data.form.card_button %}
+{% endif %}
+
+<div class="prescription" itemscope="" itemtype="http://schema.org/about">
+  <svg width="15" height="36" class="prescription-pinner">
+    <use xlink:href="images/svg-sprite.svg#pinner"></use>
+  </svg>
+  <div class="prescription-text">
+    {% if page.card_pic %}
+      <img class="prescription-image" src="{{ page.card_pic }}" />
+    {% else %}
+      <p itemprop="about">{{ page.about.text | join: '<br>' }}</p>
+    {% endif %}
+  </div>
+  <button class="prescription-button primary-button">
+    <span class="no-margin">{{ card_button }}</span>
+  </button>
+</div>

@@ -1,0 +1,13 @@
+<div class="images-grid-wrapper">
+    {% for image in page.images %}
+    <div class="aspect-ratio-wrapper">
+        <div class="grid-element-wrapper">
+            {% if image.title %}
+            <span class="vertical-helper"></span><img class="grid-element-image" src="{{ image.src }}" title="{{ image.title }}"/>
+            {% else %}
+            <span class="vertical-helper"></span><img class="grid-element-image" src="{{ image.src }}"/>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>

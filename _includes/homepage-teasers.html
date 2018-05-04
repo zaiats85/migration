@@ -1,0 +1,16 @@
+<div class="ul-teasers">
+  <div class="row">
+    {% for item in site.data.homepage_teasers %}
+    <div class="col-md-4 col-sm-6 col-xs-12 boxes">
+      <div class="box">
+        <div class="images-wrapper">
+          <img class="box-image" src="{{ item.image }}" width="128" height="128"/>
+        </div>
+        <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+        <p>{{ item.text }}</p>
+        <small><a href="{{ item.url }}">קראו עוד על {{ item.title }}</a></small>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

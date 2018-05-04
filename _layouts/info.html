@@ -1,0 +1,119 @@
+---
+layout: default
+base_layout: info
+---
+
+{% if page.desktop_modal_trigger == 'show' %}
+    {% assign desktop_modal_trigger = true %}
+{% elsif page.desktop_modal_trigger != 'hide' and site.data.form.desktop_modal_trigger == 'show' %}
+    {% assign desktop_modal_trigger = true %}
+{% else %}
+    {% assign desktop_modal_trigger = false %}
+{% endif %}
+
+{% if page.desktop_trigger_button %}
+    {% assign desktop_trigger_button = page.desktop_trigger_button %}
+{% else %}
+    {% assign desktop_trigger_button = site.data.desktop_trigger_button %}
+{% endif %}
+
+
+{% if page.card == 'show' %}
+    {% assign show_card = true %}
+{% elsif page.card != 'hide' and site.data.form.card == 'show' %}
+    {% assign show_card = true %}
+{% else %}
+    {% assign show_card = false %}
+{% endif %}
+
+
+{% if page.phone == 'show' %}
+    {% assign showPhone = true %}
+{% elsif page.phone != 'hide' and site.data.form.phone == 'show' %}
+    {% assign showPhone = true %}
+{% else %}
+    {% assign showPhoneParent = 'hide-phone' %}
+{% endif %}
+
+
+
+<section id="info">
+    {% include image-view-modal.html %}
+
+    <div class="images-grid-modal images-modal">
+        <div class="vertical-helper"></div>
+        <div class="images-modal-content">
+            <div class="load-gallery"></div>
+            <p class="grid-modal-title no-margin"></p>
+            <span class="close-modal-button">&times</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="info-background-img">
+
+            {% if page.main_category == 'dental-beauty' %}
+                <img src="images/banners/mainbann1.jpg"/>
+            {% elsif page.main_category == 'dental-implants' %}
+                <img src="images/banners/mainbann2.jpg"/>
+            {% elsif page.main_category == 'dental-treatment' %}
+                <img src="images/banners/mainbann3.jpg"/>
+            {% endif %}
+
+            {% if desktop_modal_trigger %}
+                <div class="open-form-block-wrapper hidden-sm hidden-xs">
+                    <div class="open-form-block {{ showPhoneParent }}">
+                        <i class="sprite v-icon-small open-checkmark"></i>
+                        <button class="primary-button open-collapsed">{{ desktop_trigger_button }}</button>
+
+                        {% if showPhone %}
+                            <a href="tel:{{ site.data.form.number }}">
+                                <i class="sprite call-now"></i>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="info-content" itemprop="mainContentOfPage">
+
+            {% if show_card %}
+                <div class="flipper-container hidden-sm hidden-xs">
+                    <div class="prescription-desktop">
+                        {% include prescription.html %}
+                        <div class="flipper-form-wrapper">
+                            {% include form.html parent="prescription" %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-categories">
+                    {% include categories.html %}
+                </div>
+                <h1 itemprop="headline" class="main-title align-right">{{ page.title }}</h1>
+                <div class="prescription-mobile hidden-lg hidden-md">
+                    {% include prescription.html %}
+                </div>
+            {% else %}
+
+                <div class="info-categories centered">
+                    {% include categories.html %}
+                </div>
+                <h1 itemprop="headline" class="main-title">{{ page.title }}</h1>
+
+            {% endif %}
+
+            <div class="images-start-point">
+                {{ content }}
+            </div>
+        </div>
+
+        {% include pointer-arrow.html %}
+
+        {% include related-content-links.html %}
+        {% include related-content-links-xs.html %}
+
+<!--         {% include pointer-arrow-xs.html %} -->
+    </div>
+</section>

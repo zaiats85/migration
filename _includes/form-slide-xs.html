@@ -1,0 +1,17 @@
+{% if include.parent == 'slide' %}
+  {% assign element_class = 'slide-form' %}
+{% elsif include.parent == 'modal' %}
+  {% assign element_class = 'mobile-modal-form' %}
+{% endif %}
+
+<div class="{{ element_class }} visible-sm visible-xs collapsable collapsed">
+  <div class="first-form">
+
+    {% if include.parent == 'slide' %}
+      {% include form.html shouldHide=true parent='bottom-teaser' %}
+    {% elsif include.parent == 'modal' %}
+      {% include form.html shouldHide=true parent='modal' %}
+    {% endif %}
+
+  </div>
+</div>

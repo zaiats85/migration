@@ -1,0 +1,38 @@
+
+name: פורטל רפואת שיניים
+description: פורטל רפואת שיניים - שאפ
+author:
+  name: Kliktic LLC
+  email: admin@kliktic.com
+url: https://dental.medicart.co.il
+encoding: UTF-8
+permalink: pretty
+timezone: Israel/Jerusalem
+
+# Markdown library.
+markdown: kramdown
+#   auto_ids: true
+#   footnote_nr: 1
+#   entity_output: as_char
+#   toc_levels: 1..6
+#   use_coderay: false
+#   coderay:
+#     coderay_wrap: div
+#     coderay_line_numbers: inline
+#     coderay_line_numbers_start: 1
+#     coderay_tab_width: 4
+#     coderay_bold_every: 10
+#     coderay_css: style
+
+asset_pipeline:
+  bundle: true         # Default = true
+  compress: true          # Default = true
+  output_path: assets     # Default = assets
+  display_path: nil       # Default = nil
+  gzip: false             # Default = false
+
+#plugins:
+#    - jekyll-minifier
+
+#jekyll-minifier:
+#  exclude: ['*.html', '*.js']

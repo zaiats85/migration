@@ -1,0 +1,56 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='sitemap.xsl'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+	<url>
+	  <loc>{{ site.url }}</loc>
+	  <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
+	  <changefreq>weekly</changefreq>
+	  <priority>1.0</priority>
+	</url>
+	{% for post in site.posts %}
+		{% if post.sitemap %}
+			<url>
+			  <loc>{{ site.url }}{{ post.url }}</loc>
+			  {% if post.sitemap.date != nil %}
+			  	<lastmod>{{ post.sitemap.date | date: "%Y-%m-%d" }}</lastmod>
+			  {% else %}
+			  	<lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
+			  {% endif %}
+			  {% if post.sitemap.changefreq != nil %}
+			  	<changefreq>{{ post.sitemap.changefreq }}</changefreq>
+			  {% else %}
+			  	<changefreq>monthly</changefreq>
+			  {% endif %}
+			  {% if post.sitemap.priority != nil %}
+			  	<priority>{{ post.sitemap.priority }}</priority>
+			  {% else %}
+			  	<priority>0.1</priority>
+			  {% endif %}
+			</url>
+		{% endif %}
+	{% endfor %}
+	{% for page in site.pages %}
+		{% if page.sitemap %}
+			<url>
+			  <loc>{{ site.url }}{{ page.url }}</loc>
+			  {% if page.sitemap.date != nil %}
+			  	<lastmod>{{ page.sitemap.date | date: "%Y-%m-%d" }}</lastmod>
+			  {% else %}
+			  	<lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
+			  {% endif %}
+			  {% if page.sitemap.changefreq != nil %}
+			  	<changefreq>{{ page.sitemap.changefreq }}</changefreq>
+			  {% else %}
+			  	<changefreq>monthly</changefreq>
+			  {% endif %}
+			  {% if page.sitemap.priority != nil %}
+			  	<priority>{{ page.sitemap.priority }}</priority>
+			  {% else %}
+			  	<priority>0.1</priority>
+			  {% endif %}
+			</url>
+		{% endif %}
+	{% endfor %}
+</urlset>

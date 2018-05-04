@@ -1,0 +1,50 @@
+---
+s3_id: 
+s3_secret: 
+s3_bucket: 
+cloudfront_distribution_id: 
+
+max_age:
+  images/*: 2592000
+  fonts/*: 2592000
+  assets/*: 2592000
+  data-search.json: 2592000
+  '*': 86400
+
+gzip:
+  - .html
+  - .htm
+  - .css
+  - .js
+  - .json
+  - .txt
+  - .jpg
+  - .JPG
+  - .png
+  - .PNG
+  - .gif
+  - .GIF
+  - .svg
+  - .SVG
+  - .md
+  - .eot
+  - .svt
+  - .ttf
+  - .woff
+  - .xml
+  - .XML
+  - .xsl
+  - .XSL
+  - .ico
+  - .ICO
+  - ''
+
+
+extensionless_mime_type: text/html
+
+exclude_from_upload:
+- Gemfile
+- Gemfile.lock
+- docs
+- s3_website.yml
+- README.md

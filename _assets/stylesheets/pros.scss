@@ -1,0 +1,219 @@
+@import "includes/bootstrap-pros";
+@import "includes/default";
+@import "includes/related-content-links";
+@import "includes/form-vertical";
+
+#pros {
+  min-height:948px;
+
+  .vertical-form-wrapper .cost form .select-arrow {
+    left: 15px;
+  }
+
+  h1,h2 {
+    //font-size:48px;
+    font-size:3.428571em;
+    margin-bottom:0;
+  }
+
+  .col-first {
+    padding-right:0;
+    padding-left:0;
+    width:62%;
+    padding-top:27px;
+    margin-top:30px;
+  }
+
+  .table-wrapper {
+    width:100%;
+    margin-left:30px;
+    padding-bottom:22px;
+    font-size:1.42857em;
+    background:$table-wrapper-background
+  }
+
+  .tbl-row-header {
+    border:1px solid $table-header-border;
+    padding:6px 33px;
+    background:$table-header-background;
+    margin-right:0;
+    margin-left:0
+  }
+
+  .tbl-row {
+    border-bottom:1px dashed $table-row-border;
+    padding:6px 33px;
+    margin-left:0;
+    margin-right:0
+  }
+
+  .tbl-col-last {
+    font-weight:400
+  }
+
+  .tbl-col-last img {
+    margin-left:5px;
+    height:22px
+  }
+
+  .col-first .related-links {
+    margin:4px
+  }
+
+  .attention {
+    padding: 7px 0 0 58px;
+    position:relative;
+    background:url(../images/info/stop-block-cutted.svg) no-repeat;
+    background-size: 100px 90%;
+    color:$attention-color;
+    margin-top: 20px;
+  }
+
+  .attention h4 {
+    //font-size:32px;
+    font-size:2.285714em;
+    margin-top:17px;
+    margin-bottom:1px;
+    color:$attention-h4-color
+  }
+
+  .attention p {
+    line-height:23px;
+    //font-size:18px;
+    font-size:1.28571em;
+  }
+  .pros-stop-content {
+    background-color: #bebaac;
+    min-height: 190px;
+    padding: 20px;
+    position: relative;
+  }
+  .pros-stop-icon  {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 50px;
+  }
+
+  .hand {
+    background: url(../images/info/stop.svg) no-repeat;
+    position:absolute;
+    right:-16px;
+    top:43px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .col-last {
+    padding-right:0;
+    padding-left:0;
+    padding-top:27px;
+    width:38%;
+    margin-top:30px
+  }
+
+  .col-last .vertical-form-wrapper {
+    background:$col-last-vertical-form-wrapper-background url(../images/form/homepage.png);
+
+    &.plastic-surgery { background:$col-last-vertical-form-wrapper-plastic-surgery url(../images/form/plastic-surgery.png) }
+    &.aesthetic-treatment { background:$col-last-vertical-form-wrapper-aesthetic-treatment url(../images/form/esthetic-treatment.png) }
+    &.body-toning { background:$col-last-vertical-form-wrapper-body-toning url(../images/form/body-toning.png) }
+    &.dental-treatment { background:$col-last-vertical-form-wrapper-dental-treatment url(../images/form/dental-treatment.png) }
+    &.hair-treatment { background:$col-last-vertical-form-wrapper-hair-treatment url(../images/form/hair-treatment.png) }
+    &.laser-treatment { background:$col-last-vertical-form-wrapper-laser-treatment url(../images/form/laser-treatment.png) }
+  }
+
+  .modal {
+    top:80px;
+    overflow:visible;
+    width:97%;
+    margin:0 auto
+  }
+
+  .modal .close {
+    position:absolute;
+    left:-4px;
+    top:-4px;
+    float:left;
+    color:$modal-close-color;
+    background-color:$modal-close-background;
+    opacity:1;
+    width:34px;
+    height:34px;
+    line-height:20px;
+    text-align:center;
+    z-index:2500
+  }
+
+  .modal .close span {
+    font-weight:400;
+    line-height:34px
+  }
+}
+
+@media screen and (min-width:992px) {
+  #pros {
+    .col-first { padding-left:5px }
+    .table-wrapper { width:96% }
+  }
+}
+
+@media screen and (min-width:767px) {
+  #pros .col-first .table-wrapper .tbl-col-last {
+    text-align:left
+  }
+}
+
+//@media (max-width:1221px) {
+//  #pros .attention {
+//    background-size: 12%;
+//  }
+//}
+
+@media screen and (max-width:991px) {
+  #pros {
+    .col-first {
+      width:100%;
+      margin-top:0
+    }
+
+    .tbl-row {
+      padding:12px 6px;
+      cursor:hand;
+
+      &:hover { background:$table-row-hover-media-background }
+    }
+
+    .col-last {
+      width:100%;
+      margin-top:0
+    }
+    //.attention {
+    //  background-size: 8%;
+    //  padding: 8px 0 0 43px;
+    //}
+    .pros-stop-content {
+      min-height: 215px;
+    }
+  }
+}
+
+@media screen and (max-width:767px) {
+  #pros {
+    .col-first {
+      background:$col-first-media-background url(../images/homepage/find-treathment/main-background.svg) no-repeat;
+      background-size:190px
+    }
+
+    .col-first h1 {
+      min-height:105px;
+      //font-size:36px;
+      font-size:2.571428em;
+      width:65%;
+      margin-top:7px;
+      margin-bottom:30px
+    }
+
+    .table-wrapper { font-weight:700 }
+  }
+}

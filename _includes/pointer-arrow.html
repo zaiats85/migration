@@ -1,0 +1,20 @@
+{% if page.pointer == 'show' %}
+  {% assign pointer_visible = true %}
+{% elsif page.pointer != 'hide' and site.data.form.pointer == 'show' %}
+  {% assign pointer_visible = true %}
+{% else %}
+  {% assign pointer_visible = false %}
+{% endif %}
+
+{% if page.pointer_text %}
+  {% assign pointer_text = page.pointer_text %}
+{% else %}
+  {% assign pointer_text = site.data.form.pointer_text %}
+{% endif %}
+
+{% if pointer_visible %}
+<div class="pointer-arrow-wrapper hidden-sm hidden-xs">
+  <img class="pointer-arrow-background" src="../images/form/pointer-arrow.png" />
+  <p class="pointer-arrow-text">{{ pointer_text }}</p>
+</div>
+{% endif %}

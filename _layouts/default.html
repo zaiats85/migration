@@ -1,0 +1,334 @@
+{% if page.main_title %}
+{% assign main_title = page.main_title %}
+{% else %}
+{% assign main_title = site.data.home.main_title %}
+{% endif %}
+
+{% if page.meta_tags.keywords %}
+{% assign keywords = page.meta_tags.keywords %}
+{% else %}
+{% assign keywords = site.data.home.meta_tags.keywords %}
+{% endif %}
+
+{% if page.meta_tags.description %}
+{% assign description = page.meta_tags.description %}
+{% else %}
+{% assign description = site.data.home.meta_tags.description %}
+{% endif %}
+
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <script>
+      dataLayer = [];
+  </script>
+  {% include gtmHead.js %}
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>{{ main_title }}</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"/>
+  <meta name="keywords" content="{{ keywords | join: ', ' }}"/>
+  <meta name="description" content="{{ description }}"/>
+  {% if page.meta_tags.canonical == nil %}
+  <link rel="canonical" href="{{ site.url }}/{{ page.permalink }}"/>
+  {% else %}
+  <link rel="canonical" href="{{ page.meta_tags.canonical }}"/>
+  {% endif %}
+
+  {% if page.base_layout %}
+
+  {% if page.base_layout == 'front-page' %}
+  {% css_asset_tag global %}
+  - /_assets/stylesheets/front-page.scss
+  {% endcss_asset_tag %}
+
+  {% elsif page.base_layout == 'pros' %}
+  {% css_asset_tag global %}
+  - /_assets/stylesheets/pros.scss
+  {% endcss_asset_tag %}
+
+  {% elsif page.base_layout == 'info' %}
+  {% css_asset_tag global %}
+  - /_assets/stylesheets/info.scss
+  {% endcss_asset_tag %}
+
+  {% elsif page.base_layout == 'price' %}
+  {% css_asset_tag global %}
+  - /_assets/stylesheets/price.scss
+  {% endcss_asset_tag %}
+
+  {% elsif page.base_layout == 'generic' %}
+  {% css_asset_tag global %}
+  - /_assets/stylesheets/price.scss
+  {% endcss_asset_tag %}
+  {% endif %}
+  {% else %}
+
+  {% if page.layout == 'info' %}
+  {% css_asset_tag global %}
+  - /_assets/stylesheets/info.scss
+  {% endcss_asset_tag %}
+
+  {% elsif page.layout == 'price' %}
+  {% css_asset_tag global %}
+  - /_assets/stylesheets/price.scss
+  {% endcss_asset_tag %}
+
+  {% elsif page.layout == 'pros' %}
+  {% css_asset_tag global %}
+  - /_assets/stylesheets/pros.scss
+  {% endcss_asset_tag %}
+
+  {% elsif page.layout == 'generic' %}
+  {% css_asset_tag global %}
+  - /_assets/stylesheets/price.scss
+  {% endcss_asset_tag %}
+  {% endif %}
+  {% endif %}
+
+
+  {% if page.modal.modal_trigger %}
+  {% assign modal_trigger = page.modal.modal_trigger %}
+  {% else %}
+  {% assign modal_trigger = site.data.form.modal_trigger %}
+  {% endif %}
+
+
+  {% if page.phone == 'show' %}
+  {% assign showPhone = true %}
+  {% elsif page.phone != 'hide' and site.data.form.phone == 'show' %}
+  {% assign showPhone = true %}
+  {% endif %}
+
+</head>
+<body itemscope itemtype="http://schema.org/MedicalWebPage">
+{% include gtmBody.js %}
+
+<div class="site-wrapper">
+  <div class="content-wrapper">
+
+    <header>
+      <div class="header-wrapper row">
+        <div class="row logo-wrapper col-md-12 col-xs-7">
+          <div class="container">
+            <div class="col-md-6 col-sm-12">
+              <div class="logo">
+                <a class="header-logo-link" href="/">
+                  <img class="medicart-logo" src="/images/logoshap.svg" width="68" height="43"/>
+                  <img class="medicart-text" src="images/dental-logo.svg" width="92" height="41">
+                  <span class="logo-text">מתייעצים, משווים וחוסכים</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-xs-6 align-left hidden-sm hidden-xs">
+              <div class="header-call-to-action">
+                <div class="call-to-action-background">
+                  <i class="call-to-action-medal sprite medal-icon"></i>
+                  <span class="medicart-call-text">{{ modal_trigger }}</span>
+                  <svg width="59" height="49" class="call-to-action-hand">
+                    <use xlink:href="images/svg-sprite.svg#hand-pointer"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row nav-wrapper col-md-12 col-xs-5 no-padding">
+          <div class="container">
+            <!--Mobile buttons-->
+            <button class="navbar-toggle collapsed" id="navbar-toggle" data-target=".navbar-collapse">
+              <i class="fa icon-menu"></i>
+            </button>
+
+            <button class="accessibility-nav-button header-nav-button hidden-lg hidden-md">
+              <i class="fa icon-wheelchair-alt"></i>
+            </button>
+
+            <button class="search-nav-button header-nav-button hidden-lg hidden-md">
+              <i class="fa icon-search"></i>
+            </button>
+
+            <!--Desktop buttons-->
+            <div class="desktop-accessibility desktop-search-access hidden-sm hidden-xs">
+              <button class="desktop-accessibility-button desktop-nav-button">
+                <i class="fa icon-wheelchair-alt"></i>
+              </button>
+              <ul class="desktop-accessibility-block">
+                {% include accessibility.html %}
+                <div class="bottom-row"></div>
+              </ul>
+            </div>
+
+            <div class="desktop-search desktop-search-access hidden-sm hidden-xs">
+              <button class="desktop-search-button desktop-nav-button">
+                <i class="fa icon-search"></i>
+                <i class="fa icon-cancel hidden"></i>
+              </button>
+              <div class="desktop-search-block hidden">
+                {% include search.html %}
+              </div>
+            </div>
+
+            <!--Navbar-->
+            <nav itemscope itemtype="http://schema.org/SiteNavigationElement"
+                 class="navbar-collapse collapse nav-block">
+
+              <table class="header-main-menu hidden-xs hidden-sm">
+                <tbody>
+                {% include menu-menu.html %}
+                </tbody>
+              </table>
+              <!-- Mobile menu  -->
+              <div class="mobile-menu-wrapper hidden-lg hidden-md">
+                <div class="header-buttons-row">
+                  <button class="navbar-toggle collapsed" data-target=".navbar-collapse">
+                    <i class="fa icon-menu"></i>
+                  </button>
+
+                  <button class="accessibility-button header-button">
+                    <i class="fa icon-wheelchair-alt"></i>
+                  </button>
+
+                  <button class="search-button header-button">
+                    <i class="fa icon-search"></i>
+                  </button>
+                </div>
+
+                <div class="menu-categories-wrapper mobile-fixed-height">
+                  <ul class="header-main-menu hidden-lg hidden-md">
+                    {% include main-menu-xs.html %}
+                  </ul>
+                </div>
+
+                <ul class="header-accessibility mobile-fixed-height">
+                  {% include accessibility.html %}
+                </ul>
+
+                <div class="header-search mobile-fixed-height">
+                  {% include search.html %}
+                </div>
+              </div> <!-- End of moblie menu -->
+            </nav>
+          </div>
+        </div>
+      </div> <!-- End of container -->
+    </header>
+
+    {{ content }}
+
+    {% if page.layout == 'info' %}
+    {% assign footer-classes = 'info-footer' %}
+    {% endif %}
+
+
+    <footer itemscope itemtype="http://schema.org/WPFooter" class="{{footer-classes}}">
+
+      {% if site.data.home.footer %}
+      <div class="footer-elements hidden-sm hidden-xs">
+        <div class="container">
+          {% include footer-menu-links.html %}
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="footer-background">
+        {% if page.layout == 'info' %}
+        <div class="footer-info-form hidden-sm hidden-xs">
+          {% include form.html parent="footer" %}
+        </div>
+        {% endif %}
+        <div class="text-center copyright-wrapper">
+          {% include copyrights.html %}
+        </div>
+      </div>
+
+    </footer>
+
+
+    {% if page.mobile.top_teaser == 'show' %}
+    {% include form-top-xs.html %}
+    {% elsif page.mobile.top_teaser != 'hide' and site.data.form.top_teaser == 'show' %}
+    {% include form-top-xs.html %}
+    {% endif %}
+
+    {% if page.mobile.bottom_teaser == 'show' %}
+    {% include form-xs.html %}
+    {% elsif page.mobile.bottom_teaser != 'hide' and site.data.form.bottom_teaser == 'show' %}
+    {% include form-xs.html %}
+    {% endif %}
+
+    {% if page.mobile.slide %}
+    {% include form-slide-xs.html parent="slide" %}
+    {% elsif page.mobile.slide == nil and site.data.form.slide %}
+    {% include form-slide-xs.html parent="slide" %}
+    {% endif %}
+
+    {% if page.modal.time %}
+    {% include form-slide-xs.html parent="modal" %}
+    {% elsif site.data.form.time %}
+    {% include form-slide-xs.html parent="modal" %}
+    {% endif %}
+
+
+    <!-- These divs allow to easily detect the current bootstrap display. -->
+    <div class="device-xs visible-xs"></div>
+    <div class="device-sm visible-sm"></div>
+    <div class="device-md visible-md"></div>
+    <div class="device-lg visible-lg"></div>
+    {% include backToTop.html %}
+
+  </div>
+</div>
+
+<!-- Modals -->
+{% if page.modal.time %}
+{% assign form_time = page.modal.time %}
+{% elsif site.data.form.time %}
+{% assign form_time = site.data.form.time %}
+{% endif %}
+<div class="modal fade" id="thxModal" tabindex="-1" role="dialog"></div>
+<div class="modal fade" id="formModal" data-time="{{ form_time }}">
+  <div class="modal-form">
+    {% include form.html parent="modal" %}
+  </div>
+</div>
+
+<iframe name="form-response" src="" style="display: none;"></iframe>
+
+<script type="text/javascript">
+    function downloadJSAtOnload() {
+        var element = document.createElement("script");
+
+        element.src = "{% javascript_asset_tag global %}
+            - /_assets/javascripts/libs/jquery-3.1.1.min.js
+            - /_assets/javascripts/libs/bootstrap.min.js
+            - /_assets/javascripts/libs/jquery.hoverIntent.min.js
+            - /_assets/javascripts/libs/jquery-sticktotop.min.js
+            - /_assets/javascripts/libs/typeahead.bundle.js
+            - /_assets/javascripts/libs/hammer.min.js
+            - /_assets/javascripts/libs/jquery.hammer.js
+            - /_assets/javascripts/formValidation.js
+            - /_assets/javascripts/lead.js
+            - /_assets/javascripts/main.js
+            - /_assets/javascripts/modal.js
+            - /_assets/javascripts/sticky.js
+            - /_assets/javascripts/mobile-navbar.js
+            - /_assets/javascripts/search.js
+            - /_assets/javascripts/image-popup.js
+            - /_assets/javascripts/close-popup.js
+        {% endjavascript_asset_tag %}";
+        document.body.appendChild(element);
+    }
+    if (window.addEventListener)
+        window.addEventListener("load", downloadJSAtOnload, false);
+    else if (window.attachEvent)
+        window.attachEvent("onload", downloadJSAtOnload);
+    else window.onload = downloadJSAtOnload;
+</script>
+
+</body>
+</html>

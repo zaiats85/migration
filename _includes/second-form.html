@@ -1,0 +1,35 @@
+<div class="second-form hidden">
+  <div class="icon-wrapper">
+      <i class="fa icon-paper-plane"></i>
+  </div>
+  <!-- <img class="img-mail icon hidden-xs hidden-sm" src="/images/form/mail-icon-large.png"> -->
+  <div class="header-form">תודה על פנייתך! פרטיך נשלחו למערכת.</div>
+  <!-- <p>אם ברצונך לקבל עידכונים, נא להשאיר את הדוא״ל כאן למטה.</p> -->
+  <form accept-charset="UTF-8" enctype="multipart/form-data" method="post">
+    <!-- <div class="col-33">
+      <label>דואר אלקטרוני</label>
+      <div class="input-wrapper">
+        <div class="icon mail-icon"></div>
+        <div class="bubble"></div>
+        <input class="has-icon text email" name="field_67776494" type="text">
+      </div>
+    </div>
+    <div class="submit-wrapper">
+      <input class="submit" name="commit" type="submit" value="סיום">
+    </div> -->
+    <div class="clearfix"></div>
+    <input name="utf8" type="hidden" value="✓">
+    <input name="authenticity_token" type="hidden" value="tEQQSjr8X8DMa3phn5T/Ow9S7I9jslW6gxF3YXWPUf4=">
+    <input type="hidden" class="procedure" name="field_67691081" {% if page.procedure_type %}value="{{ page.procedure_type }}"{% elsif site.default_procedure %}value="{{ site.default_procedure }}"{% endif %}>
+    <input type="hidden" class="region" name="field_67690428">
+    <input type="hidden" class="source" name="field_67691083" value="tester">
+    <input type="hidden" class="ip" name="field_67688764">
+    <input type="hidden" class="domain" name="field_67691082" value="{{ site.url }}">
+    <input type="hidden" class="first-name" name="field_67688385">
+    <input type="hidden" class="last-name" name="field_67688386">
+    <input type="hidden" class="phone" name="field_67688387">
+    <input type="hidden" class="date" name="field_67688390[date]">
+    <input type="hidden" class="time" name="field_67688390[time]">
+    <input type="hidden" class="system" name="field_67719625" value="paid">
+  </form>
+</div>

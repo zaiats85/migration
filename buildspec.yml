@@ -9,9 +9,9 @@ env:
 phases:
   install:
     commands:
-      - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist
-      # - bundle update
-      # - bundle install
+      #- gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist
+      - bundle update
+      - bundle install
   build:
     commands:
       - echo "******** Logs copying files to S3 ******" > s3-log.txt

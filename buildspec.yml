@@ -9,7 +9,8 @@ env:
 phases:
   install:
     commands:
-      - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist
+      - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist bundler
+      - bundle update
       - bundle install
   build:
     commands:
@@ -29,13 +30,13 @@ phases:
 
   post_build:
     commands:
-      - echo "******** Invalidate CloudFront Only modified fields ********"
-      - aws configure set preview.cloudfront true
-      - sh s3-script.sh
+      # - echo "******** Invalidate CloudFront Only modified fields ********"
+      # - aws configure set preview.cloudfront true
+      # - sh s3-script.sh
 
-      - echo "******** Set Cache-Control ********"
+      # - echo "******** Set Cache-Control ********"
       # invalidate files with extention
-      - aws s3 sync _site/ s3://${bucket_name}/ --exclude "*" --include "*.*" --cache-control max-age=2592000 --delete --size-only
+      # - aws s3 sync _site/ s3://${bucket_name}/ --exclude "*" --include "*.*" --cache-control max-age=2592000 --delete --size-only
 
       # invalidate files without extention
-      - aws s3 sync _site/ s3://${bucket_name}/ --exclude "*.*" --content-type text/html --cache-control max-age=86400 --delete --size-only
+      # - aws s3 sync _site/ s3://${bucket_name}/ --exclude "*.*" --content-type text/html --cache-control max-age=86400 --delete --size-only

@@ -11,8 +11,6 @@ phases:
     commands:
       - echo "***** install jekyll *****"
       - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist bundler
-      - jekyll --version
-      - bundler --version
 
   build:
     commands:

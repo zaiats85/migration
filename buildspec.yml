@@ -9,15 +9,13 @@ env:
 phases:
   install:
     commands:
-#      - jekyll --version
-#      - bundler --version
       - echo "***** install jekyll *****"
-#      - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist bundler
-      - bundle update
-      - bundle install
+      - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist bundler
+      - jekyll --version
+      - bundler --version
+
   build:
     commands:
-
       - jekyll build
 
   post_build:

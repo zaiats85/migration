@@ -1,0 +1,782 @@
+/******************************* MIXINS and FONTS *******************************/
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+
+@font-face{
+  font-family:'almoni-dl';
+  font-weight:400; /*(regular)*/
+  font-style: normal;
+  src: url('../fonts/almoni-dl-aaa-400.eot');
+  src: url('../fonts/almoni-dl-aaa-400.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/almoni-dl-aaa-400.ttf') format('truetype'),
+  url('../fonts/almoni-dl-aaa-400.woff') format('woff');
+}
+
+@font-face{
+  font-family:'almoni-dl';
+  font-weight:700; /*(bold)*/
+  font-style: normal;
+  src: url('../fonts/almoni-dl-aaa-700.eot');
+  src: url('../fonts/almoni-dl-aaa-700.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/almoni-dl-aaa-700.ttf') format('truetype'),
+  url('../fonts/almoni-dl-aaa-700.woff') format('woff');
+}
+
+/******************************* END MIXINS and FONTS *******************************/
+
+
+
+@import "includes/variables-custom.scss";
+@import "includes/chomp.scss";
+@import "includes/main-menu.scss";
+@import "includes/form.scss";
+@import "includes/back-to-top.scss";
+@import "includes/search-page.scss";
+@import "includes/image-popup.scss";
+@import "includes/sprite.scss";
+@import "pointer-arrow.scss";
+
+
+
+/******************************* GENERAL *******************************/
+html {
+  direction: rtl
+}
+
+body {
+  font-family: 'almoni-dl', sans-serif;
+  font-weight: 400;
+  color: $text-main-color;
+  font-size: 16px;
+}
+
+h2,h3 {
+  color: $text-main-color;
+}
+
+a, a:active, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.center-text {
+  text-align: center
+}
+
+.right-text {
+  text-align: right !important;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-scroll,
+.no-scroll-modal {
+  overflow-y: hidden;
+}
+
+button {
+  outline: none;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 5px
+}
+
+.primary-button {
+  background: $form-submit-background;
+  color: $form-submit-color;
+  height: 41px;
+  border: 1px solid $form-submit-border;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.2);
+  font-size: 1.214em;
+  padding: 0 20px;
+
+  &:hover {
+    background: $form-submit-background-hover;
+    color: $form-submit-color-hover;
+    border: 1px solid $form-submit-border-hover;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2), inset 0 2px 0 0 #339FAE;
+  }
+}
+.open-gallery {
+  background: #0E7180;
+  color: $form-submit-color !important;
+  height: 40px;
+  border: 1px solid #184443;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.5), inset 0 1px 10px 0 #CAEFF3;
+  font-size: 1.143em;
+  padding: 0 20px;
+  display: inline-block;
+  line-height: 40px;
+  margin-right: 50%;
+  transform: translateX(50%);
+}
+
+html, body, .site-wrapper {
+  height: 100%
+}
+
+.container.search {
+  min-height: calc(100% - 111px)
+}
+
+
+
+/***************************** ACCESSIBILITY STYLES ********************/
+body.underlined {
+  a,
+  .accessibility-item,
+  .mobile-menu-item span:not(.icon),
+  .submit-wrapper .submit {
+    text-decoration: underline !important;
+  }
+}
+
+body.contrasted {
+  p, h1, h2, h3, h4, small, label,
+  li, th, td, span,
+  a:not(.header-logo-link),
+  .buble span {
+    background: #000 !important;
+    color: yellow !important;
+  }
+}
+
+body.big-font {
+  font-size: 22px;
+  span.font-big {
+    background: $main-category-color;
+    color: $menu-mobile-background;
+  }
+}
+
+body.middle-font {
+  font-size: 20px;
+  span.font-middle {
+    background: $main-category-color;
+    color: $menu-mobile-background;
+  }
+}
+
+body.small-font {
+  font-size: 18px;
+  span.font-small {
+    background: $main-category-color;
+    color: $menu-mobile-background;
+  }
+}
+
+body.default-font {
+  span.font-default {
+    background: $main-category-color;
+    color: $menu-mobile-background;
+  }
+}
+
+
+
+/***************************** HEADER STYLES ***************************/
+.header-wrapper {
+  background: $header-background;
+  padding-top: 15px;
+  border-bottom: 3px solid $menu-icons-color;
+
+  .medicart-logo {
+    vertical-align: bottom;
+    margin-left: 5px;
+  }
+  .logo-text {
+    font-size: 1.124em;
+    color: $text-main-color;
+    display: block;
+    margin-top: 3px;
+  }
+  .medicart-text {
+    vertical-align: bottom;
+  }
+
+
+  .header-call-to-action {
+    background: $header-call-background;
+    border: 1px solid $header-call-border;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,.33);
+    border-radius: 8px;
+    min-width: 300px;
+    height: 46px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 6px;
+  }
+  .call-to-action-background {
+    background: url('../images/call-to-action-bubbles.svg') no-repeat;
+    background-position-x: 5%;
+    background-size: 90% auto;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 45px;
+  }
+  .call-to-action-medal {
+    position: absolute;
+    right: -24px;
+    top: -14px;
+    z-index: 10;
+  }
+  .call-to-action-hand {
+    position: absolute;
+    left: -26px;
+    top: -14px;
+  }
+  .medicart-call-text {
+    color: $header-call-color;
+    font-size: 1.286em;
+    display: inline-block;
+    vertical-align: bottom;
+    font-weight: bold;
+  }
+}
+
+.logo-wrapper {
+  border-bottom: 2px solid white;
+  padding-bottom: 10px;
+
+  .container {
+    display: flex
+  }
+
+  .col-xs-6.align-left {
+    padding-left: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+.nav-wrapper {
+  .navbar-collapse.nav-block {
+    //width: calc(100% - 115px);
+  }
+  .header-main-menu {
+    width: calc(100% - 115px);
+  }
+  .desktop-search-access {
+    float: left;
+    position: relative;
+    margin: 5px;
+
+    .bottom-row {
+      position: absolute;
+      height: 5px;
+      background: $desktop-menu-title-background;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+
+  //Desktop accessibility styles
+  .desktop-accessibility-block {
+    position: absolute;
+    z-index: 20;
+    left: 0;
+    top: 45px;
+    width: 255px;
+    background: $desktop-menu-background;
+    display: none;
+    list-style: none;
+    padding: 0 0 5px;
+    font-size: 1.143em;
+
+    .accessibility-title {
+      background: $desktop-menu-title-background;
+      color: $desktop-menu-title-color;
+      padding: 10px 15px;
+    }
+    .accessibility-item {
+      color: $desktop-menu-color;
+      border-bottom: 1px $text-additional-color solid;
+      padding: 10px 60px 10px 22px;
+      position: relative;
+
+      p {
+        cursor: pointer;
+      }
+    }
+    .accessibility-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 22px;
+      font-size: 23px;
+    }
+  }
+  .desktop-accessibility:hover {
+    background: $menu-icons-color;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+    margin: 0;
+
+    .desktop-accessibility-button {
+      color: $desktop-menu-title-color;
+      width: 47px;
+      height: 45px;
+    }
+    .desktop-accessibility-block {
+      display: block;
+    }
+  }
+
+  //Desktop search styles
+  .desktop-search.active {
+    background: $menu-icons-color;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+    margin: 0;
+
+    .desktop-search-button {
+      color: $desktop-menu-title-color;
+      width: 47px;
+      height: 45px;
+    }
+  }
+  .desktop-search-block {
+    position: absolute;
+    z-index: 15;
+    top: 45px;
+    left: 0;
+    padding: 7px;
+    background: $desktop-menu-title-background;
+
+    .header-search-input,
+    .header-search-input:focus {
+      height: 41px;
+      font-size: 1.286em;
+      color: #767676;
+      outline: none;
+      border: none;
+      direction: rtl;
+    }
+    .header-search-cancel {
+      display: none;
+    }
+
+    .tt-menu {
+      width: auto;
+      left: -7px !important;
+      right: -7px;
+      padding: 0 7px 7px;
+      border-top: 1px solid $desktop-menu-title-background;
+      background: $desktop-menu-title-background;
+      color: black;
+      overflow-y: auto;
+    }
+    .tt-dataset {
+      background: white;
+      padding: 0 10px;
+    }
+    .tt-suggestion {
+      overflow: hidden;
+    }
+    .tt-highlight {
+      color: $text-additional-color;
+    }
+  }
+
+  .header-nav-button {
+    font-size: 25px;
+    color: $menu-mobile-background;
+    border: 0;
+    background: 0;
+    outline: 0;
+    padding: 0 5px;
+    margin-top: 17px;
+  }
+
+  .desktop-nav-button {
+    float: left;
+    width: 37px;
+    font-size: 25px;
+    color: $text-additional-color;
+    border: 0;
+    background: 0;
+    outline: 0;
+    //padding-top: 0;
+    //padding-bottom: 0;
+    padding: 0;
+
+    .fa {
+      margin: auto;
+    }
+  }
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 900;
+  top: 0;
+  left: 0;
+
+  .header-search-wrapper {
+    position: relative;
+    .tt-suggestion,
+    .empty-message {
+      text-align: right;
+    }
+    .empty-message {
+      padding: 0 10px;
+      color: black;
+    }
+    .header-search-cancel {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: $main-category-color;
+      height: 45px;
+      width: 38px;
+      line-height: 45px;
+    }
+    .twitter-typeahead {
+      width: 100%;
+    }
+    .search-url-item {
+      display: block;
+      color: black;
+      margin: 8px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header-search-input {
+      padding: 3px 10px 3px 36px;
+      color: black;
+
+      &:focus {
+        font-size: inherit;
+      }
+    }
+  }
+
+  .nav-wrapper {
+    position: relative;
+    background: $header-background;
+
+    .navbar-toggle {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      border-radius: 0;
+      height: 45px;
+      float: left;
+      margin: 0;
+      padding: 7px 5px 7px 12px;
+      font-size: 17.5px;
+    }
+
+    .navbar-toggle.collapsed {
+      width: auto;
+    }
+  }
+}
+
+.site-wrapper {
+  padding-top: 145px;
+}
+
+
+
+/***************************** HEADER MEDIA ***************************/
+@media screen and (max-width: 991px) {
+  .header-wrapper {
+    padding-top: 0;
+    max-height: 55px;
+
+    .medicart-logo {
+      width: 42px;
+      height: 28px;
+    }
+    .medicart-text {
+      width: 66px;
+      height: 32px;
+    }
+
+    .logo-text {
+      font-size: 13px;
+    }
+  }
+  .logo-wrapper {
+    padding-bottom: 5px;
+    border-bottom: 0;
+    .container {
+      width: 100%;
+      padding: 0 10px 0 0;
+    }
+  }
+  .nav-wrapper {
+    .container {
+      width: 100%;
+      padding: 0;
+    }
+  }
+  header {
+    .nav-wrapper {
+      .header-nav-button {
+        float: left;
+      }
+
+      .nav-block {
+        border-top: 0;
+        position: absolute;
+        left: 0;
+        clear: left;
+        height: 100vh;
+        width: 100vw;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 300;
+        padding: 0;
+      }
+
+      .nav-block .header-main-menu {
+        padding-right: 0;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0;
+        overflow-y: auto;
+      }
+
+      .nav-block .header-main-menu .main-category .menu-container {
+        visibility: hidden
+      }
+    }
+  }
+
+  .site-wrapper {
+    padding-top: 54px;
+  }
+
+  header {
+    z-index: 5000;
+  }
+
+  .row {
+    margin: 0
+  }
+
+  .container,
+  .row .col-sm-12 {
+    padding: 0
+  }
+}
+
+
+
+/***************************** FOOTER STYLES ***************************/
+footer {
+  color: $text-main-color;
+  margin-top: 30px;
+
+  .footer-background {
+    background: $footer-background url('../images/footerwide.jpg') no-repeat 50% 0;
+    min-height: 144px;
+    position: relative;
+    padding-bottom: 50px;
+  }
+
+  .footer-elements {
+    text-align: center;
+    min-height: 41px;
+    font-size: 1.143em;
+    background: $footer-bar-background;
+  }
+  .footer-menu-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 2px 0;
+
+    li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+    h4 {
+      font-size: 0.875em;
+    }
+  }
+  .copyright-wrapper {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    right: 0;
+    font-size: 0.929em;
+  }
+}
+
+
+
+/*********************** BOOTSTRAP CUSTOM *******************************/
+@media screen and (min-width: 768px) {
+  .container {
+    width: 751px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    width: 970px
+  }
+}
+
+@media screen and (min-width: 1222px) {
+  .container {
+    width: 1150px
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+
+
+/******************** MODALS ****************/
+//.modal#thxModal {
+//  background: rgba(0,0,0,.5);
+//}
+.modal-content {
+  padding: 15px;
+  background: url(../images/footerwide.jpg) 50% 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $form-background;
+  }
+
+  .modal-title {
+    //font-size:48px;
+    font-size: 3.428571em;
+    color: $text-main-color;
+    position: relative;
+  }
+  .modal-text {
+    color: #333;
+    //font-size: 19px;
+    font-size: 1.357142em;
+    line-height: 28px;
+  }
+  .modal-subtitle {
+    //font-size: 31px;
+    font-size: 2.214285em;
+    color: $text-main-color;
+    position: relative
+  }
+  .modal-colored-text {
+    //font-size: 21px;
+    font-size: 1.5em;
+    color: #b11e2f;
+  }
+  .modal-block {
+    background: #fff;
+    border: 1px solid #d3d3d3;
+    padding: 15px;
+    position: relative
+  }
+  .close-modal {
+    color: $text-main-color;
+    background: transparent;
+    border: none;
+    float: left;
+    height: 25px;
+    font-size: 20px;
+    line-height: 20px;
+    position: relative;
+    z-index: 5;
+    padding: 0;
+  }
+}
+
+.modal-form {
+  max-width: 925px;
+  margin: 150px auto 0;
+  border-radius: 7px;
+  background: url(../images/footerwide.jpg) no-repeat 50% 0;
+  background-size: auto 150%;
+
+  .price-form {
+    background-color: rgba(181,240,248,0.67);
+    border-radius: 7px;
+    box-shadow: 0 2px 13px 0 rgba(0, 0, 0, .47);
+    padding-bottom: 20px;
+  }
+
+  .submit {
+    width: 33%;
+  }
+
+  .collapsed-button {
+    display: block;
+    cursor: pointer;
+  }
+  .form-small-text {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 991px) {
+  .modal-content {
+    .modal-title {
+      font-size: 2.429em;
+    }
+    .modal-text {
+      font-size: 1.143em;
+    }
+    .modal-subtitle,
+    .modal-colored-text {
+      font-size: 2em;
+    }
+  }
+}
+
+
+
+/******************** IOS Safari double tap fix ****************/
+@media screen and (max-width: 991px) {
+  html, body {
+    /* Allows content to fill the viewport and go beyond the bottom */
+    height: 100%;
+
+    /* Allows you to scroll below the viewport; default value is visible */
+    overflow-y: hidden;
+  }
+  .site-wrapper {
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+
+    /* To smooth any scrolling behavior */
+    -webkit-overflow-scrolling: touch;
+  }
+}

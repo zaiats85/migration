@@ -1,0 +1,45 @@
+//
+// Forms
+// --------------------------------------------------
+
+label {
+  display: inline-block;
+  max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+
+// Normalize form controls
+//
+// While most of our form styles require extra classes, some basic normalization
+// is required to ensure optimum display with or without those classes to better
+// address browser inconsistencies.
+
+// Override content-box in Normalize (* isn't specific enough)
+input[type="search"] {
+  @include box-sizing(border-box);
+}
+
+// Search inputs in iOS
+//
+// This overrides the extra rounded corners on search inputs in iOS so that our
+// `.form-control` class can properly style them. Note that this cannot simply
+// be added to `.form-control` as it's not specific enough. For details, see
+// https://github.com/twbs/bootstrap/issues/11586.
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+// Form control sizing
+//
+// Build on `.form-control` with modifier classes to decrease or increase the
+// height and font-size of form controls.
+//
+// The `.form-group-* form-control` variations are sadly duplicated to avoid the
+// issue documented in https://github.com/twbs/bootstrap/issues/15074.
+
+//@include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $input-border-radius-small);
+
+//@include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $input-border-radius-large);

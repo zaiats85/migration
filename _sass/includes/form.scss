@@ -1,0 +1,405 @@
+/*************************** General Form Styles  ******************************/
+.price-form {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-image: url(../../images/form/form-bubbles.svg);
+  background-repeat: no-repeat;
+  background-color: $form-background;
+  border: 1px solid $form-border;
+  background-size: 93% auto;
+  background-position-x: 15px;
+  padding: 10px 15px;
+  border-radius: 7px;
+
+  .form-header {
+    text-align: center;
+    color: $text-main-color;
+    position: relative;
+    overflow: hidden;
+
+    .side-checkmark {
+      position: absolute;
+      right: 0;
+      top: 5px;
+      display: none;
+    }
+
+    .form-title {
+      font-size: 2.857em;
+      margin: 5px 0 0;
+    }
+    .form-subtitle {
+      font-size: 1.286em;
+      margin: 0 0 5px;
+    }
+    a.form-subtitle:hover {
+	      color: #335dc7;
+    }
+  }
+
+  .inputs-wrappers {
+    @include flexbox();
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    small {
+      color: $text-simple-color;
+      font-size: 0.857em;
+      line-height: 27px;
+    }
+  }
+  .col-33 {
+    width: 30%;
+    padding: 0 5px;
+  }
+  .col-50 {
+    width: 35%;
+    padding: 0 5px;
+  }
+  .input-wrapper {
+    position: relative;
+  }
+  .select-arrow {
+    @extend .sprite;
+    @extend .select-arrow;
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .bubble {
+    display: none;
+    position: absolute;
+    top: -33px;
+    left: 14px;
+    padding: 5px 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    background: $validation-background;
+    color: $validation-color;
+    z-index: 9999;
+
+    .arrow {
+      position: absolute;
+      left: 16px;
+      top: 27px;
+      width: 0;
+      height: 0;
+      border-left: 15px solid rgba(0, 0, 0, 0);
+      border-right: 1px solid rgba(0, 0, 0, 0);
+      border-top: 15px solid $validation-background
+    }
+  }
+  .form-input {
+    width: 100%;
+    background: $form-input-background;
+    color: $text-additional-color;
+    border: 1px solid $form-input-border;
+    height: 49px;
+    padding: 0 10px;
+    outline: none;
+    font-size: 1.143em;
+    border-radius: 0;
+    -webkit-appearance: none;
+
+    &::-webkit-input-placeholder {
+      color: $text-additional-color;
+    }
+    &::-moz-placeholder {
+      color: $text-additional-color;
+    }
+    &:-ms-input-placeholder {
+      color: $text-additional-color;
+    }
+    &:-moz-placeholder {
+      color: $text-additional-color;
+    }
+  }
+  select.form-input {
+    padding-left: 36px;
+  }
+
+  .submit-wrapper {
+    text-align: center;
+
+    .mobile-form-call {
+      display: none;
+    }
+  }
+
+  .form-small-text {
+    color: #767676;
+    font-size: 1.057em;
+    line-height: 16px;
+    width: 100%;
+    display: block;
+    text-align: center;
+    position: relative;
+    margin-top: 8px;
+  }
+
+  .collapsed-button {
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    font-size: 22px;
+    display: none;
+    z-index: 500
+  }
+}
+
+
+
+@media screen and (max-width: 991px) {
+  .price-form .input-wrapper .select-arrow {
+    background-position: 0 -16px;
+    width: 19px;
+    height: 11px;
+  }
+}
+
+
+/*************************** Mobile Form Styles  ******************************/
+.floating-form {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 6000;
+
+  &.collapsed {
+    top: initial;
+    bottom: 3px;
+    z-index: 4000;
+    transition: bottom .4s, visibility .4s;
+
+    .first-form {
+      display: none;
+    }
+  }
+
+  &.unvisible {
+    visibility: hidden;
+    bottom: -150px;
+  }
+
+  .open-form-block {
+    margin: 0 15px;
+    border-radius: 12px;
+    background: $floating-form-background-test url(../../images/form/formbkg-vertical.jpg) no-repeat;
+    background-size: 100% auto;
+    padding: 5px 14px 5px 8px;
+    box-shadow: 0 2px 9px 4px rgba(0,0,0,.4);
+
+    .open-checkmark {
+      display: block;
+      margin: 0 auto -7px;
+    }
+
+    a {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .sprite.call-now {
+      display: block;
+    }
+
+    .primary-button {
+      width: calc(100% - 65px);
+      vertical-align: bottom;
+      margin-bottom: 8px;
+    }
+
+    &.hide-phone {
+      padding: 5px 14px;
+
+      .open-checkmark {
+        margin-bottom: 4px
+      }
+      .primary-button {
+        width: 100%
+      }
+    }
+  }
+}
+
+.floating-top-form {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 6000;
+
+  &.collapsed {
+    top: 63px;
+    bottom: initial;
+    z-index: 4000;
+    transition: top .4s, visibility .4s;
+
+    .first-form {
+      display: none;
+    }
+  }
+
+  &.unvisible {
+    visibility: hidden;
+    top: -100px;
+  }
+
+  .open-form-block {
+    margin: 0 15px;
+    border-radius: 12px;
+    background: $form-background-base url(../../images/form/formbkg-vertical.jpg) no-repeat;
+    background-size: 100% auto;
+    padding: 7px 6px 1px 4px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 9px 0 rgba(0,0,0,.2);
+
+    .open-checkmark {
+      margin-left: 4px;
+      margin-bottom: 5px
+    }
+
+    .sprite.call-now {
+      margin-right: 2px;
+    }
+    .primary-button {
+      //width: calc(100% - 55px);
+      //vertical-align: bottom;
+      //margin-bottom: 8px;
+      flex-grow: 1
+    }
+
+    &.hide-phone {
+      padding: 7px 6px 5px 10px;
+    }
+  }
+}
+
+
+
+.floating-form,
+.floating-top-form,
+.slide-form,
+.mobile-modal-form {
+  .first-form {
+    @include flexbox();
+    height: 100%;
+    width: 100%;
+    background-image: url(../../images/form/formbkg-mobile.jpg);
+    background-size: cover;
+    padding: 0 15px;
+    position: absolute;
+    top: 0;
+    overflow-y: scroll;
+  }
+  .price-form {
+    margin: auto;
+    //background-image: url(../../images/form/mobile-form-leaves.svg);
+    box-shadow: 0 -1px 7px 3px rgba(0, 0, 0,.4);
+    border-radius: 7px;
+    padding-bottom: 40px;
+
+    .form-title {
+      font-size: 2.571em;
+      margin: 0;
+    }
+    .form-subtitle {
+      font-size: 1.143em;
+      margin-bottom: 0;
+    }
+
+    .inputs-wrappers {
+      flex-wrap: wrap;
+
+      > div:first-of-type {
+        margin-top: 10px;
+      }
+    }
+    .col-33, .col-50 {
+      width: 100%;
+      margin-top: 30px;
+    }
+    .form-input {
+      height: 35px;
+      font-size: 1.143em;
+    }
+    .collapsed-button {
+      display: block;
+    }
+    small:not(.form-small-text) {
+      display: block;
+      height: 0;
+    }
+    small {
+      display: block;
+      height: 0;
+    }
+    .col-50:last-of-type small {
+      height: 15px;
+    }
+  }
+
+  .submit-wrapper {
+    .submit {
+      width: calc(100% - 65px);
+
+      &.hide-phone {
+        margin: 5px 0 9px;
+      }
+    }
+    a {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .mobile-form-call {
+      display: inline-block
+    }
+  }
+}
+
+
+.slide-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  visibility: visible;
+  z-index: 5010;
+  transition: top 0.5s;
+
+  &.collapsed {
+    top: 100%;
+    visibility: hidden;
+  }
+}
+
+.mobile-modal-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  visibility: visible;
+  transform: scale(1);
+  opacity: 1;
+  z-index: 5010;
+  transition: transform .5s ease-out, opacity .5s ease-out, visibility 0.0001s linear 0.0001s;
+
+  &.collapsed {
+    transform: scale(.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .5s ease-in, opacity .5s ease-in, visibility 0.0001s linear .5s;
+  }
+}

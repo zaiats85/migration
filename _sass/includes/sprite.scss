@@ -1,0 +1,23 @@
+.sprite { background: url('../images/png-sprite.png') no-repeat top left; width: 70px; height: 58px; display: inline-block; }
+
+.sprite.select-arrow { background-position: 0 0; width: 25px; height: 14px; }
+.sprite.select-arrow-mobile { background-position: 0 -16px; width: 19px; height: 11px; }
+.sprite.prev-arrow { background-position: 0 -29px; width: 18px; height: 31px; }
+.sprite.prev-arrow-hover { background-position: 0 -62px; width: 17px; height: 30px; }
+.sprite.icon-beauty-hover { background-position: 0 -94px; height: 70px; }
+.sprite.icon-beauty-small-hover { background-position: 0 -166px; width: 58px; }
+.sprite.icon-beauty-small { background-position: 0 -226px; width: 58px; }
+.sprite.icon-beauty { background-position: 0 -286px; height: 70px; }
+.sprite.icon-implants-hover { background-position: 0 -358px; height: 70px; }
+.sprite.icon-implants-small-hover { background-position: 0 -430px; width: 58px; }
+.sprite.icon-implants-small { background-position: 0 -490px; width: 58px; }
+.sprite.icon-implants { background-position: 0 -550px; height: 70px; }
+.sprite.icon-treatment-hover { background-position: 0 -622px; height: 70px; }
+.sprite.icon-treatment-small-hover { background-position: 0 -694px; width: 58px; }
+.sprite.icon-treatment-small { background-position: 0 -754px; width: 58px; }
+.sprite.icon-treatment { background-position: 0 -814px; height: 70px; }
+.sprite.medal-icon { background-position: 0 -886px; height: 83px; }
+.sprite.v-icon-small { background-position: 0 -971px; width: 46px; height: 52px; }
+.sprite.v-icon { background-position: 0 -1025px; width: 66px; height: 76px; }
+.sprite.v-stop-block { background-position: 0 -1103px; width: 33px; height: 41px; }
+.sprite.call-now { background-position: 0 -1146px; width: 60px; height: 64px; }

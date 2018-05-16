@@ -1,0 +1,38 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+table {
+  background-color: $table-bg;
+}
+th {
+  text-align: left;
+}
+
+// Table cell sizing
+//
+// Reset default table behavior
+//table {
+//  td,
+//  th {
+//    &[class*="col-"] {
+//      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+//      float: none;
+//      display: table-cell;
+//    }
+//  }
+//}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+// Generate the contextual variants
+//@include table-row-variant('active', $table-bg-active);
+//@include table-row-variant('success', $state-success-bg);
+//@include table-row-variant('info', $state-info-bg);
+//@include table-row-variant('warning', $state-warning-bg);
+//@include table-row-variant('danger', $state-danger-bg);

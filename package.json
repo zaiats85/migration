@@ -1,0 +1,61 @@
+{
+  "name": "medicall",
+  "version": "1.0.0",
+  "babel": {
+    "plugins": [
+      [
+        "transform-es2015-classes",
+        "es6-promise"
+      ]
+    ],
+    "presets": [
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ]
+    ]
+  },
+  "description": "app for clinic search",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^13.3.0",
+    "glob": "^7.1.2",
+    "gsap": "^1.20.4",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-util": "^3.0.8",
+    "merge-stream": "^1.0.1",
+    "search-jekyll-medicart": "^1.0.1",
+    "uglify-es": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
+    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
+    "vinyl-source-stream": "^1.1.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run gulp",
+    "gulp": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard"
+  },
+  "author": "zaiats85",
+  "license": "ISC",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "event-stream": "^3.3.4",
+    "fancy-log": "^1.3.2",
+    "gulp-cache": "^1.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-size": "^3.0.0",
+    "gulp-uglify": "^3.0.0",
+    "snazzy-info-window": "^1.1.1",
+    "vinyl-buffer": "^1.0.1"
+  }
+}

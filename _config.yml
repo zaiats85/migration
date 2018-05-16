@@ -9,6 +9,10 @@ encoding: UTF-8
 permalink: pretty
 timezone: Israel/Jerusalem
 
+# Build settings
+sass:
+  style: compressed
+
 # Markdown library.
 markdown: kramdown
 #   auto_ids: true
@@ -24,12 +28,12 @@ markdown: kramdown
 #     coderay_bold_every: 10
 #     coderay_css: style
 
-asset_pipeline:
-  bundle: true         # Default = true
-  compress: true          # Default = true
-  output_path: assets     # Default = assets
-  display_path: nil       # Default = nil
-  gzip: false             # Default = false
+#asset_pipeline:
+#  bundle: true         # Default = true
+#  compress: true          # Default = true
+#  output_path: assets     # Default = assets
+#  display_path: nil       # Default = nil
+#  gzip: false             # Default = false
 
 #plugins:
 #    - jekyll-minifier

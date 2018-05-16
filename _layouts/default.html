@@ -39,55 +39,53 @@
 
   {% if page.base_layout %}
 
-  {% if page.base_layout == 'front-page' %}
-  {% css_asset_tag global %}
-  - /_assets/stylesheets/front-page.scss
-  {% endcss_asset_tag %}
+      {% if page.base_layout == 'front-page' %}
+        <!-- front-page -->
+      <link rel='stylesheet' href='/css/front-page.css' type='text/css' >
+      {% endif %}
 
-  {% elsif page.base_layout == 'pros' %}
-  {% css_asset_tag global %}
-  - /_assets/stylesheets/pros.scss
-  {% endcss_asset_tag %}
+      {% if page.base_layout == 'pros' %}
+        <!-- pros -->
+      <link rel='stylesheet' href='/css/pros.css' type='text/css' >
+      {% endif %}
 
-  {% elsif page.base_layout == 'info' %}
-  {% css_asset_tag global %}
-  - /_assets/stylesheets/info.scss
-  {% endcss_asset_tag %}
+      {% if page.base_layout == 'info' %}
+      <!-- info -->
+      <link rel='stylesheet' href='/css/info.css' type='text/css' >
+      {% endif %}
 
-  {% elsif page.base_layout == 'price' %}
-  {% css_asset_tag global %}
-  - /_assets/stylesheets/price.scss
-  {% endcss_asset_tag %}
+      {% if page.base_layout == 'price' %}
+      <!-- price -->
+      <link rel='stylesheet' href='/css/price.css' type='text/css' >
+      {% endif %}
 
-  {% elsif page.base_layout == 'generic' %}
-  {% css_asset_tag global %}
-  - /_assets/stylesheets/price.scss
-  {% endcss_asset_tag %}
-  {% endif %}
+      {% if page.base_layout == 'generic' %}
+      <!-- generic -->
+      <link rel='stylesheet' href='/css/price.css' type='text/css' >
+      {% endif %}
+
   {% else %}
 
-  {% if page.layout == 'info' %}
-  {% css_asset_tag global %}
-  - /_assets/stylesheets/info.scss
-  {% endcss_asset_tag %}
+      {% if page.layout == 'pros' %}
+      <link rel='stylesheet' href='/css/pros.css' type='text/css' >
+      {% endif %}
 
-  {% elsif page.layout == 'price' %}
-  {% css_asset_tag global %}
-  - /_assets/stylesheets/price.scss
-  {% endcss_asset_tag %}
+      {% if page.layout == 'info' %}
+      <!-- info -->
+      <link rel='stylesheet' href='/css/info.css' type='text/css' >
+      {% endif %}
 
-  {% elsif page.layout == 'pros' %}
-  {% css_asset_tag global %}
-  - /_assets/stylesheets/pros.scss
-  {% endcss_asset_tag %}
+      {% if page.layout == 'price' %}
+      <!-- price -->
+      <link rel='stylesheet' href='/css/price.css' type='text/css' >
+      {% endif %}
 
-  {% elsif page.layout == 'generic' %}
-  {% css_asset_tag global %}
-  - /_assets/stylesheets/price.scss
-  {% endcss_asset_tag %}
+      {% if page.layout == 'generic' %}
+      <!-- generic -->
+      <link rel='stylesheet' href='/css/price.css' type='text/css' >
+      {% endif %}
+
   {% endif %}
-  {% endif %}
-
 
   {% if page.modal.modal_trigger %}
   {% assign modal_trigger = page.modal.modal_trigger %}
@@ -299,36 +297,17 @@
 
 <iframe name="form-response" src="" style="display: none;"></iframe>
 
-<script type="text/javascript">
-    function downloadJSAtOnload() {
-        var element = document.createElement("script");
+<script src="{{ site.baseurl }}/production/js/libs/jquery-3.1.1.min.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/bootstrap.min.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/jquery.hoverIntent.min.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/jquery-sticktotop.min.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/typeahead.bundle.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/hammer.min.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/jquery.hammer.js"></script>
 
-        element.src = "{% javascript_asset_tag global %}
-            - /_assets/javascripts/libs/jquery-3.1.1.min.js
-            - /_assets/javascripts/libs/bootstrap.min.js
-            - /_assets/javascripts/libs/jquery.hoverIntent.min.js
-            - /_assets/javascripts/libs/jquery-sticktotop.min.js
-            - /_assets/javascripts/libs/typeahead.bundle.js
-            - /_assets/javascripts/libs/hammer.min.js
-            - /_assets/javascripts/libs/jquery.hammer.js
-            - /_assets/javascripts/formValidation.js
-            - /_assets/javascripts/lead.js
-            - /_assets/javascripts/main.js
-            - /_assets/javascripts/modal.js
-            - /_assets/javascripts/sticky.js
-            - /_assets/javascripts/mobile-navbar.js
-            - /_assets/javascripts/search.js
-            - /_assets/javascripts/image-popup.js
-            - /_assets/javascripts/close-popup.js
-        {% endjavascript_asset_tag %}";
-        document.body.appendChild(element);
-    }
-    if (window.addEventListener)
-        window.addEventListener("load", downloadJSAtOnload, false);
-    else if (window.attachEvent)
-        window.attachEvent("onload", downloadJSAtOnload);
-    else window.onload = downloadJSAtOnload;
-</script>
+<script src="{{ site.baseurl }}/production/js/libs.js"></script>
+
+<script src="{{ site.baseurl }}/production/js/global/global.min.js"></script>
 
 </body>
 </html>

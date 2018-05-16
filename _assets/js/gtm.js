@@ -1,0 +1,3 @@
+
+var bnmbmn = 0;
+

@@ -1,0 +1,28 @@
+#backToTop {
+  position: fixed;
+  right: 24px;
+  bottom: 150px;
+  z-index: 800;
+  display:none;
+
+  .btn {
+    background-color: $back-to-top-button-background;
+    width: 51px;
+    height: 51px;
+    border-color: $back-to-top-button-border;
+    border-radius: 50%;
+    line-height: 51px;
+    padding: 0;
+    text-align: center;
+    transition: 0.2s;
+    outline: 0;
+  }
+
+  .btn-primary:hover,.btn-primary:active { background-color: $back-to-top-button-hover }
+
+  i {
+    color: $back-to-top-i-color;
+    font-size: 22px;
+    margin-right:1px
+  }
+}

@@ -1,0 +1,57 @@
+/************************ FORM VERTICAL ***************************/
+.form-vertical {
+  background: url(../../images/form/formbkg-vertical.jpg) 100% 100%;
+  background-size: cover;
+  border-radius: 7px;
+
+  .price-form {
+    box-shadow: 0 -2px 9px 0 rgba(0,0,0,.47);
+    border-radius: 7px;
+    background-color: $form-background-base;
+    padding: 25px 5px 40px;
+
+    .form-title {
+      font-size: 2.429em;
+      margin: 0;
+    }
+    .form-subtitle {
+      font-size: 1em;
+      padding: 0 5px;
+      margin-bottom: 0;
+    }
+
+    .inputs-wrappers {
+      flex-wrap: wrap;
+
+      > div:first-of-type {
+        margin-top: 10px;
+      }
+    }
+    .col-33, .col-50 {
+      width: 100%;
+      margin-top: 30px;
+    }
+    small {
+      display: block;
+      height: 0;
+    }
+    .col-50:last-of-type small {
+      height: 15px;
+    }
+    .form-input {
+      height: 35px;
+      font-size: 1.143em;
+    }
+
+    .submit-wrapper {
+      margin-top: 15px;
+    }
+    .submit {
+      width: 75%;
+    }
+    .select-arrow {
+      @extend .sprite;
+      @extend .select-arrow-mobile;
+    }
+  }
+}

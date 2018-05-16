@@ -1,0 +1,55 @@
+.categories {
+  @include flexbox();
+  justify-content: space-around;
+
+  .category {
+    text-align: center;
+  }
+
+  .category-image {
+    @extend .sprite;
+    display: inline-block;
+
+    &.beauty { @extend .sprite.icon-beauty }
+    &.beauty.active { @extend .sprite.icon-beauty-hover }
+    &.implants { @extend .sprite.icon-implants }
+    &.implants.active { @extend .sprite.icon-implants-hover }
+    &.treatment { @extend .sprite.icon-treatment }
+    &.treatment.active { @extend .sprite.icon-treatment-hover }
+  }
+
+  .category-title {
+    font-size: 0.857em;
+    color: $text-main-color;
+    text-align: center;
+  }
+  .category-title.active {
+    color: $text-additional-color;
+  }
+
+  .category:hover {
+    .category-image {
+      &.beauty { @extend .sprite.icon-beauty-hover }
+      &.implants { @extend .sprite.icon-implants-hover }
+      &.treatment { @extend .sprite.icon-treatment-hover }
+    }
+
+    .category-title {
+      color: $text-additional-color;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .categories .category .category-image {
+    width: 58px !important;
+    height: 58px !important;
+
+    &.beauty { background-position: 0 -226px; }
+    &.beauty.active { background-position: 0 -166px; }
+    &.implants { background-position: 0 -490px; }
+    &.implants.active { background-position: 0 -430px; }
+    &.treatment { background-position: 0 -754px; }
+    &.treatment.active { background-position: 0 -694px; }
+  }
+}

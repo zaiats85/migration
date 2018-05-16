@@ -9,8 +9,9 @@ env:
 phases:
   install:
     commands:
-      - jekyll --version
-      - bundler --version
+#      - jekyll --version
+#      - bundler --version
+      - echo "***** install jekyll *****"
       - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist bundler
       - bundle install
   build:
@@ -20,3 +21,4 @@ phases:
 
   post_build:
     commands:
+      - echo "postbuild"

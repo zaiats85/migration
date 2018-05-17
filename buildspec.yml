@@ -12,8 +12,7 @@ phases:
   install:
     commands:
       - ruby --version
-      - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist bundler
-      - gem install public_suffix -v '3.0.2'
+      - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist
       - bundle install
 
   build:

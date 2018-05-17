@@ -3,9 +3,9 @@ version: 0.2
 env:
   variables:
     bucket_name: "medicall-migration"
-    LC_CTYPE: "C.UTF-8"
     LANG: "he_IL.UTF-8"
     LANGUAGE: "he_IL.UTF-8"
+    LC_CTYPE: "C.UTF-8"
     #cloudfront_distribution_id: "E10GQXPX7YHHWD"
 
 phases:
@@ -13,10 +13,11 @@ phases:
     commands:
       - locale
 
-      - echo "***** install jekyll *****"
-      - gem install jekyll
+#      - echo "***** install jekyll *****"
+#      - gem install jekyll
 
       - echo "***** bundle install *****"
+      - bundle update
       - bundle install
 
   build:

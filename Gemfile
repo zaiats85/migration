@@ -12,3 +12,7 @@ gem 'sass'
 gem 'yui-compressor'
 
 gem 'jekyll-minifier'
+
+gem 'jekyll-paginate'
+gem 'jekyll-sitemap'
+gem 'jekyll-gist'

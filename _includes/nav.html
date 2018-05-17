@@ -1,0 +1,108 @@
+<header>
+    <div class="header-wrapper row">
+        <div class="row logo-wrapper col-md-12 col-xs-7">
+            <div class="container">
+                <div class="col-md-6 col-sm-12">
+                    <div class="logo">
+                        <a class="header-logo-link" href="/">
+                            <img class="medicart-logo" src="/images/logoshap.svg" width="68" height="43"/>
+                            <img class="medicart-text" src="images/dental-logo.svg" width="92" height="41">
+                            <span class="logo-text">מתייעצים, משווים וחוסכים</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 align-left hidden-sm hidden-xs">
+                    <div class="header-call-to-action">
+                        <div class="call-to-action-background">
+                            <i class="call-to-action-medal sprite medal-icon"></i>
+                            <span class="medicart-call-text">{{ modal_trigger }}</span>
+                            <svg width="59" height="49" class="call-to-action-hand">
+                                <use xlink:href="images/svg-sprite.svg#hand-pointer"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row nav-wrapper col-md-12 col-xs-5 no-padding">
+            <div class="container">
+                <!--Mobile buttons-->
+                <button class="navbar-toggle collapsed" id="navbar-toggle" data-target=".navbar-collapse">
+                    <i class="fa icon-menu"></i>
+                </button>
+
+                <button class="accessibility-nav-button header-nav-button hidden-lg hidden-md">
+                    <i class="fa icon-wheelchair-alt"></i>
+                </button>
+
+                <button class="search-nav-button header-nav-button hidden-lg hidden-md">
+                    <i class="fa icon-search"></i>
+                </button>
+
+                <!--Desktop buttons-->
+                <div class="desktop-accessibility desktop-search-access hidden-sm hidden-xs">
+                    <button class="desktop-accessibility-button desktop-nav-button">
+                        <i class="fa icon-wheelchair-alt"></i>
+                    </button>
+                    <ul class="desktop-accessibility-block">
+                        {% include accessibility.html %}
+                        <div class="bottom-row"></div>
+                    </ul>
+                </div>
+
+                <div class="desktop-search desktop-search-access hidden-sm hidden-xs">
+                    <button class="desktop-search-button desktop-nav-button">
+                        <i class="fa icon-search"></i>
+                        <i class="fa icon-cancel hidden"></i>
+                    </button>
+                    <div class="desktop-search-block hidden">
+                        {% include search.html %}
+                    </div>
+                </div>
+
+                <!--Navbar-->
+                <nav itemscope itemtype="http://schema.org/SiteNavigationElement"
+                     class="navbar-collapse collapse nav-block">
+
+                    <table class="header-main-menu hidden-xs hidden-sm">
+                        <tbody>
+                        {% include menu-menu.html %}
+                        </tbody>
+                    </table>
+                    <!-- Mobile menu  -->
+                    <div class="mobile-menu-wrapper hidden-lg hidden-md">
+                        <div class="header-buttons-row">
+                            <button class="navbar-toggle collapsed" data-target=".navbar-collapse">
+                                <i class="fa icon-menu"></i>
+                            </button>
+
+                            <button class="accessibility-button header-button">
+                                <i class="fa icon-wheelchair-alt"></i>
+                            </button>
+
+                            <button class="search-button header-button">
+                                <i class="fa icon-search"></i>
+                            </button>
+                        </div>
+
+                        <div class="menu-categories-wrapper mobile-fixed-height">
+                            <ul class="header-main-menu hidden-lg hidden-md">
+                                {% include main-menu-xs.html %}
+                            </ul>
+                        </div>
+
+                        <ul class="header-accessibility mobile-fixed-height">
+                            {% include accessibility.html %}
+                        </ul>
+
+                        <div class="header-search mobile-fixed-height">
+                            {% include search.html %}
+                        </div>
+                    </div> <!-- End of moblie menu -->
+                </nav>
+            </div>
+        </div>
+    </div> <!-- End of container -->
+</header>

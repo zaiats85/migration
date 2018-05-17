@@ -1,0 +1,22 @@
+<footer itemscope itemtype="http://schema.org/WPFooter" class="{{footer-classes}}">
+
+    {% if site.data.home.footer %}
+    <div class="footer-elements hidden-sm hidden-xs">
+        <div class="container">
+            {% include footer-menu-links.html %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="footer-background">
+        {% if page.layout == 'info' %}
+        <div class="footer-info-form hidden-sm hidden-xs">
+            {% include form.html parent="footer" %}
+        </div>
+        {% endif %}
+        <div class="text-center copyright-wrapper">
+            {% include copyrights.html %}
+        </div>
+    </div>
+
+</footer>

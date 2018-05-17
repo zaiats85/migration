@@ -1,0 +1,46 @@
+<!--Scripts to optimize-->
+<script src="{{ site.baseurl }}/production/js/libs.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/jquery-3.1.1.min.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/bootstrap.min.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/jquery.hoverIntent.min.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/jquery-sticktotop.min.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/typeahead.bundle.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/hammer.min.js"></script>
+<script src="{{ site.baseurl }}/production/js/libs/jquery.hammer.js"></script>
+
+<script src="{{ site.baseurl }}/production/js/close-popup.js"></script>
+<script src="{{ site.baseurl }}/production/js/formValidation.js"></script>
+<script src="{{ site.baseurl }}/production/js/gtm.js"></script>
+<script src="{{ site.baseurl }}/production/js/image-popup.js"></script>
+<script src="{{ site.baseurl }}/production/js/lead.js"></script>
+<script src="{{ site.baseurl }}/production/js/main.js"></script>
+<script src="{{ site.baseurl }}/production/js/mobile-navbar.js"></script>
+<script src="{{ site.baseurl }}/production/js/modal.js"></script>
+<script src="{{ site.baseurl }}/production/js/notifications.js"></script>
+<script src="{{ site.baseurl }}/production/js/search.js"></script>
+<script src="{{ site.baseurl }}/production/js/search-old.js"></script>
+<script src="{{ site.baseurl }}/production/js/select.js"></script>
+<script src="{{ site.baseurl }}/production/js/sticky.js"></script>
+
+
+<!-- Ads Serving -->
+{% if page.layout == "content" page.title == "About" or page.title == "Contact"  %}
+<script src="{{ site.baseurl }}/production/js/content.min.js"></script>
+{% endif %}
+
+<!-- Home Page && Search JavaScript && Search Config -->
+{% if page.title == "Home" %}
+<script src="{{ site.baseurl }}/production/js/home-page.min.js" defer></script>
+{% endif %}
+
+{% if page.title == "Results" %}
+<script src="{{ site.baseurl }}/production/js/results.min.js"></script>
+{% endif %}
+
+{% if page.layout == "page" %}
+<script src="{{ site.baseurl }}/production/js/clinic-site.min.js"></script>
+{% endif %}
+
+{% if page.title == "Join" %}
+<script src="{{ site.baseurl }}/production/js/join_us.min.js"></script>
+{% endif %}

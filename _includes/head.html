@@ -1,0 +1,83 @@
+<head>
+    <script>
+        dataLayer = [];
+    </script>
+    {% include gtmHead.js %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>{{ main_title }}</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"/>
+    <meta name="keywords" content="{{ keywords | join: ', ' }}"/>
+    <meta name="description" content="{{ description }}"/>
+    {% if page.meta_tags.canonical == nil %}
+    <link rel="canonical" href="{{ site.url }}/{{ page.permalink }}"/>
+    {% else %}
+    <link rel="canonical" href="{{ page.meta_tags.canonical }}"/>
+    {% endif %}
+
+    {% if page.base_layout %}
+
+    {% if page.base_layout == 'front-page' %}
+    <!-- front-page -->
+    <link rel='stylesheet' href='/css/front-page.css' type='text/css' >
+    {% endif %}
+
+    {% if page.base_layout == 'pros' %}
+    <!-- pros -->
+    <link rel='stylesheet' href='/css/pros.css' type='text/css' >
+    {% endif %}
+
+    {% if page.base_layout == 'info' %}
+    <!-- info -->
+    <link rel='stylesheet' href='/css/info.css' type='text/css' >
+    {% endif %}
+
+    {% if page.base_layout == 'price' %}
+    <!-- price -->
+    <link rel='stylesheet' href='/css/price.css' type='text/css' >
+    {% endif %}
+
+    {% if page.base_layout == 'generic' %}
+    <!-- generic -->
+    <link rel='stylesheet' href='/css/price.css' type='text/css' >
+    {% endif %}
+
+    {% else %}
+
+    {% if page.layout == 'pros' %}
+    <link rel='stylesheet' href='/css/pros.css' type='text/css' >
+    {% endif %}
+
+    {% if page.layout == 'info' %}
+    <!-- info -->
+    <link rel='stylesheet' href='/css/info.css' type='text/css' >
+    {% endif %}
+
+    {% if page.layout == 'price' %}
+    <!-- price -->
+    <link rel='stylesheet' href='/css/price.css' type='text/css' >
+    {% endif %}
+
+    {% if page.layout == 'generic' %}
+    <!-- generic -->
+    <link rel='stylesheet' href='/css/price.css' type='text/css' >
+    {% endif %}
+
+    {% endif %}
+
+    {% if page.modal.modal_trigger %}
+    {% assign modal_trigger = page.modal.modal_trigger %}
+    {% else %}
+    {% assign modal_trigger = site.data.form.modal_trigger %}
+    {% endif %}
+
+
+    {% if page.phone == 'show' %}
+    {% assign showPhone = true %}
+    {% elsif page.phone != 'hide' and site.data.form.phone == 'show' %}
+    {% assign showPhone = true %}
+    {% endif %}
+
+</head>

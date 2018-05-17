@@ -11,6 +11,7 @@ env:
 phases:
   install:
     commands:
+      - ruby --version
       - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist bundler
       - bundle install
 

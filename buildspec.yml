@@ -11,13 +11,12 @@ env:
 phases:
   install:
     commands:
-      - locale
+      - ruby --version
 
-#      - echo "***** install jekyll *****"
-#      - gem install jekyll
+      - echo "***** install jekyll *****"
+      - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist bundler
 
       - echo "***** bundle install *****"
-      - bundle update
       - bundle install
 
   build:
